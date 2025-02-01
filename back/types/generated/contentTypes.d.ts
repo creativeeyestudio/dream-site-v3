@@ -404,6 +404,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::post.post'
     >;
     publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::category.category',
@@ -437,6 +440,9 @@ export interface ApiGoogleApiKeyGoogleApiKey extends Schema.SingleType {
       Attribute.Private;
     maps: Attribute.String;
     publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     tag_manager: Attribute.String;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -535,6 +541,9 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     slug: Attribute.UID<'api::page.page', 'title'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -633,6 +642,9 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }>;
     publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     slug: Attribute.UID<'api::post.post', 'title'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -687,6 +699,9 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     releasedAt: Attribute.DateTime;
     scheduledAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     status: Attribute.Enumeration<
       ['ready', 'blocked', 'failed', 'done', 'empty']
     > &
@@ -741,6 +756,9 @@ export interface PluginContentReleasesReleaseAction
       'manyToOne',
       'plugin::content-releases.release'
     >;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     type: Attribute.Enumeration<['publish', 'unpublish']> & Attribute.Required;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -790,6 +808,9 @@ export interface PluginEtablisSheet extends Schema.SingleType {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     phone_number: Attribute.String & Attribute.Required;
     publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::etablis.sheet',
@@ -869,6 +890,9 @@ export interface PluginNavigationAudience extends Schema.CollectionType {
       Attribute.Private;
     key: Attribute.UID<'plugin::navigation.audience', 'name'>;
     name: Attribute.String & Attribute.Required;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::navigation.audience',
@@ -919,6 +943,9 @@ export interface PluginNavigationNavigation extends Schema.CollectionType {
       'plugin::navigation.navigation'
     >;
     name: Attribute.Text & Attribute.Required;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     slug: Attribute.UID & Attribute.Required;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -990,6 +1017,9 @@ export interface PluginNavigationNavigationItem extends Schema.CollectionType {
       'oneToOne',
       'plugin::navigation.navigations-items-related'
     >;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     title: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1048,9 +1078,97 @@ export interface PluginNavigationNavigationsItemsRelated
     order: Attribute.Integer & Attribute.Required;
     related_id: Attribute.String & Attribute.Required;
     related_type: Attribute.String & Attribute.Required;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::navigation.navigations-items-related',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginSitemapSitemap extends Schema.CollectionType {
+  collectionName: 'sitemap';
+  info: {
+    displayName: 'sitemap';
+    pluralName: 'sitemaps';
+    singularName: 'sitemap';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::sitemap.sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    delta: Attribute.Integer & Attribute.DefaultTo<1>;
+    link_count: Attribute.Integer;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'default'>;
+    sitemap_string: Attribute.Text & Attribute.Required;
+    type: Attribute.Enumeration<['default_hreflang', 'index']> &
+      Attribute.DefaultTo<'default_hreflang'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'plugin::sitemap.sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginSitemapSitemapCache extends Schema.CollectionType {
+  collectionName: 'sitemap_cache';
+  info: {
+    displayName: 'sitemap-cache';
+    pluralName: 'sitemap-caches';
+    singularName: 'sitemap-cache';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::sitemap.sitemap-cache',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'default'>;
+    sitemap_id: Attribute.Integer & Attribute.Required;
+    sitemap_json: Attribute.JSON & Attribute.Required;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'plugin::sitemap.sitemap-cache',
       'oneToOne',
       'admin::user'
     > &
@@ -1086,6 +1204,9 @@ export interface PluginSlugifySlug extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     slug: Attribute.Text;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -1140,6 +1261,9 @@ export interface PluginStrapiLeafletGeomanConfig extends Schema.SingleType {
     defaultZoom: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<6>;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::strapi-leaflet-geoman.config',
@@ -1201,6 +1325,9 @@ export interface PluginUploadFile extends Schema.CollectionType {
     provider: Attribute.String & Attribute.Required;
     provider_metadata: Attribute.JSON;
     related: Attribute.Relation<'plugin::upload.file', 'morphToMany'>;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     size: Attribute.Decimal & Attribute.Required;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
@@ -1414,6 +1541,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
@@ -1452,6 +1582,8 @@ declare module '@strapi/types' {
       'plugin::navigation.navigation': PluginNavigationNavigation;
       'plugin::navigation.navigation-item': PluginNavigationNavigationItem;
       'plugin::navigation.navigations-items-related': PluginNavigationNavigationsItemsRelated;
+      'plugin::sitemap.sitemap': PluginSitemapSitemap;
+      'plugin::sitemap.sitemap-cache': PluginSitemapSitemapCache;
       'plugin::slugify.slug': PluginSlugifySlug;
       'plugin::strapi-leaflet-geoman.config': PluginStrapiLeafletGeomanConfig;
       'plugin::upload.file': PluginUploadFile;
