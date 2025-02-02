@@ -15,6 +15,7 @@
     "@strapi/plugin-i18n": "4.25.15",
     "@strapi/plugin-users-permissions": "4.25.15",
     "@strapi/strapi": "4.25.15",
+    "axios": "^1.7.9",
     "back": "file:",
     "better-sqlite3": "8.6.0",
     "mysql": "^2.18.1",
