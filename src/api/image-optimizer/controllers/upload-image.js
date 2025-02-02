@@ -32,7 +32,15 @@ module.exports = {
                     files: optimizedImage,
                 });
 
-                ctx.send(uploadedFile);
+                // Création d'une entrée dans le modèle Image
+                const imageEntry = await strapi.services.image.create({
+                    image: uploadedFile[0].id,  // L'ID du fichier téléchargé
+                    title: 'Image Optimisée',   // Tu peux personnaliser ou récupérer depuis l'upload
+                    description: 'Image optimisée via le microservice',  // idem
+                });
+        
+                // Retourne la réponse avec l'URL du fichier optimisé
+                ctx.send(imageEntry);
             }
         } catch (error) {
             console.error('Erreur lors de l\'optimisation de l\'image:', error);

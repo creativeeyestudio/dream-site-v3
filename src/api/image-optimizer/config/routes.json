@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "method": "POST",
+            "path": "/image/upload-and-optimize",
+            "handler": "upload-image.uploadAndOptimize",
+            "config": {
+                "policies": []
+            }
+        }
+    ]
+}
