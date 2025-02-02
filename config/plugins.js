@@ -3,8 +3,8 @@ module.exports = () => ({
         enabled: true,
         resolve: './src/plugins/etablis'
     },
-    'optimize-images': {
-        enabled: true,
-        resolve: './src/plugins/optimize-images'
-    },
+    // 'optimize-images': {
+    //     enabled: true,
+    //     resolve: './src/plugins/optimize-images'
+    // },
 });
