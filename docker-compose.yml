@@ -14,33 +14,33 @@ services:
   #     - NODE_ENV=development
   #   command: npm run dev
 
-  strapi:
-    build:
-      context: ./back  # Répertoire de votre projet Strapi
-      dockerfile: Dockerfile
-    container_name: strapi
-    restart: always
-    env_file: .env
-    environment:
-      DATABASE_CLIENT: mysql
-      DATABASE_HOST: db
-      DATABASE_PORT: 3306
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      DATABASE_SSL: 'false'
-      # Configuration de sécurité Strapi
-      APP_KEYS: ${APP_KEYS}
-      API_TOKEN_SALT: ${API_TOKEN_SALT}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
-    volumes:
-      - ./back:/app  # Montez le répertoire du projet pour le développement en direct
-      - /app/node_modules  # Montez node_modules pour éviter les conflits
-    ports:
-      - '1337:1337'
-    depends_on:
-      - db
+  # strapi:
+  #   build:
+  #     context: ./back  # Répertoire de votre projet Strapi
+  #     dockerfile: Dockerfile
+  #   container_name: strapi
+  #   restart: always
+  #   env_file: .env
+  #   environment:
+  #     DATABASE_CLIENT: mysql
+  #     DATABASE_HOST: db
+  #     DATABASE_PORT: 3306
+  #     DATABASE_NAME: ${DATABASE_NAME}
+  #     DATABASE_USERNAME: ${DATABASE_USERNAME}
+  #     DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+  #     DATABASE_SSL: 'false'
+  #     # Configuration de sécurité Strapi
+  #     APP_KEYS: ${APP_KEYS}
+  #     API_TOKEN_SALT: ${API_TOKEN_SALT}
+  #     ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+  #     TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+  #   volumes:
+  #     - ./back:/app  # Montez le répertoire du projet pour le développement en direct
+  #     - /app/node_modules  # Montez node_modules pour éviter les conflits
+  #   ports:
+  #     - '1337:1337'
+  #   depends_on:
+  #     - db
 
   db:
     image: mysql:5.7
