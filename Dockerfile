@@ -31,18 +31,6 @@ WORKDIR /app
 # Copier package.json et les fichiers essentiels
 COPY --from=builder /app/package.json yarn.lock ./
 
-# Vérifie la présence de package.json
-RUN ls -la /app
-
-# Copier uniquement les fichiers nécessaires
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/config ./config
-COPY --from=builder /app/src ./src
-COPY --from=builder /app/.tmp ./tmp
-COPY --from=builder /app/uploads ./uploads
-
 # Vérifie le contenu après copie
 RUN ls -la /app
 
