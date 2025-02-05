@@ -114,6 +114,7 @@ build
 .strapi-updater.json
 .strapi-cloud.json
 *.lock
+!yarn.lock
 
 ############################
 # Others
