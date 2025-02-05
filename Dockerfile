@@ -25,7 +25,6 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/config ./config
 COPY --from=builder /app/src ./src
-COPY --from=builder /app/.tmp ./tmp
 
 # Problème de permissions
 RUN addgroup -S strapi && adduser -S strapi -G strapi
