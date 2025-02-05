@@ -1,39 +1,39 @@
 # Étape 1 : Construire l'application Strapi dans une image temporaire
 FROM node:18-alpine AS builder
 
-# Définit le répertoire de travail
 WORKDIR /app
 
-# Installe uniquement les dépendances de production
-COPY package.json ./
+# Copier les fichiers essentiels pour l'installation des dépendances
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-# Copie le code source de l'application
+# Copier tout le code source
 COPY . .
 
-# Génère les fichiers de build pour Strapi
+# Générer les fichiers de build pour Strapi
 RUN yarn build
 
-# Étape 2 : Créer une image minimale pour exécuter l'application en production
+# Étape 2 : Créer une image minimale pour l’exécution
 FROM node:18-alpine
 
-# Définir le répertoire de travail
 WORKDIR /app
 
-# Copier uniquement les fichiers nécessaires depuis l'étape de build
-COPY --from=builder /app/package.json ./
+# Copier uniquement les fichiers nécessaires
+COPY --from=builder /app/package.json yarn.lock ./
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/config ./config
 COPY --from=builder /app/src ./src
+COPY --from=builder /app/.tmp ./tmp
+COPY --from=builder /app/uploads ./uploads
 
-# Configure l'utilisateur non-root pour améliorer la sécurité
+# Problème de permissions
 RUN addgroup -S strapi && adduser -S strapi -G strapi
+RUN chown -R strapi:strapi /app
 USER strapi
 
 # Expose le port par défaut de Strapi
 EXPOSE 1337
 
-# Commande pour démarrer Strapi en mode production
 CMD ["yarn", "start"]
