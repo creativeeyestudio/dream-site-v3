@@ -18,14 +18,6 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copier uniquement les fichiers nécessaires
-COPY --from=builder /app/package.json yarn.lock ./
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/config ./config
-COPY --from=builder /app/src ./src
-
 # Problème de permissions
 RUN addgroup -S strapi && adduser -S strapi -G strapi
 RUN chown -R strapi:strapi /app
