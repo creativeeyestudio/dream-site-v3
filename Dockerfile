@@ -1,45 +1,31 @@
-# Étape 1 : Construire l'application Strapi
-FROM node:18-alpine AS builder
+FROM node:18
+# alternatively you can use FROM strapi/base:latest
 
+# Set up working directory
 WORKDIR /app
 
-# Copier package.json et yarn.lock AVANT d'installer les dépendances
-COPY package.json yarn.lock ./
+# Copy package.json to root directory
+COPY package.json .
 
-# Vérifie que package.json est bien copié
-RUN ls -la /app
+# Copy yarn.lock to root directory
+COPY yarn.lock .
 
-# Installe les dépendances
+# Install dependencies, but not generate a yarn.lock file and fail if an update is needed
 RUN yarn install --frozen-lockfile
 
-# Copie tout le reste du projet
-COPY . .
+# Copy strapi project files
+COPY favicon.ico ./favicon.ico
+COPY src/ src/
+COPY public/ public/
+COPY database/ database/
+COPY config/ config/
+# ...
 
-ENV NODE_ENV production
-
-# Vérifie que tout est bien copié
-RUN ls -la /app
-
-# Build de l’application
+# Build admin panel
 RUN yarn build
 
-# Étape 2 : Image finale Strapi
-FROM node:18-alpine
-
-WORKDIR /app
-
-# Copier package.json et les fichiers essentiels
-COPY --from=builder /app/package.json yarn.lock ./
-
-# Vérifie le contenu après copie
-RUN ls -la /app
-
-# Problème de permissions
-RUN addgroup -S strapi && adduser -S strapi -G strapi
-RUN chown -R strapi:strapi /app
-USER strapi
-
-# Expose le port de Strapi
+# Run on port 1337
 EXPOSE 1337
 
+# Start strapi server
 CMD ["yarn", "start"]
