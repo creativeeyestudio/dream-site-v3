@@ -26,7 +26,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/config ./config
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/.tmp ./tmp
-COPY --from=builder /app/uploads ./uploads
 
 # Problème de permissions
 RUN addgroup -S strapi && adduser -S strapi -G strapi
