@@ -1,31 +1,46 @@
-FROM node:18
-# alternatively you can use FROM strapi/base:latest
+# -------------------------
+# ---- STAGE 1 : Build ----
+# -------------------------
+FROM node:18-alpine AS builder
 
-# Set up working directory
+# Définition du dossier de travail
 WORKDIR /app
 
-# Copy package.json to root directory
-COPY package.json .
+# Copie des fichiers package.json et package-lock.json
+COPY package.json yarn.lock ./
 
-# Copy yarn.lock to root directory
-COPY yarn.lock .
-
-# Install dependencies, but not generate a yarn.lock file and fail if an update is needed
+# Installation des dépendances
 RUN yarn install --frozen-lockfile
 
-# Copy strapi project files
-COPY favicon.png ./favicon.png
-COPY src/ src/
-COPY public/ public/
-COPY database/ database/
-COPY config/ config/
-# ...
+# Copie du reste du projet
+COPY . .
 
-# Build admin panel
+# Compilation de Strapi (génération de la build)
 RUN yarn build
 
-# Run on port 1337
+# ------------------------------
+# ---- STAGE 2 : Production ----
+# ------------------------------
+FROM node:18-alpine
+
+# Définition du dossier de travail
+WORKDIR /app
+
+# Création d'un utilisateur non-root pour la sécurité
+RUN addgroup -S strapi && adduser -S strapi -G strapi
+
+# Copie des fichiers nécessaires depuis le builder
+COPY --from=builder /app ./
+
+# Donne les permissions au user Strapi
+RUN chown -R strapi:strapi /app
+
+# Passage en utilisateur non root
+USER strapi
+
+# Exposition du port Strapi
 EXPOSE 1337
 
-# Start strapi server
+# Lancement de Strapi en mode production
 CMD ["yarn", "start"]
+    
