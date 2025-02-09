@@ -479,7 +479,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'common.parallax',
         'common.gallery',
         'common.heroscreen',
-        'common.html-content'
+        'common.html-content',
+        'common.text',
+        'common.text-intro'
       ]
     > &
       Attribute.Required &
