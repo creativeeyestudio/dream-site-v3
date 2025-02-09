@@ -45,7 +45,6 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: dreamsite-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}

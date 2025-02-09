@@ -73,6 +73,17 @@ export interface CommonParallax extends Schema.Component {
   };
 }
 
+export interface CommonText extends Schema.Component {
+  collectionName: 'components_common_texts';
+  info: {
+    displayName: 'Text';
+  };
+  attributes: {
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface CommonTextDoubleImage extends Schema.Component {
   collectionName: 'components_common_text_double_images';
   info: {
@@ -104,6 +115,17 @@ export interface CommonTextImage extends Schema.Component {
   };
 }
 
+export interface CommonTextIntro extends Schema.Component {
+  collectionName: 'components_common_text_intros';
+  info: {
+    displayName: 'Text-Intro';
+  };
+  attributes: {
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -113,8 +135,10 @@ declare module '@strapi/types' {
       'common.html-content': CommonHtmlContent;
       'common.links': CommonLinks;
       'common.parallax': CommonParallax;
+      'common.text': CommonText;
       'common.text-double-image': CommonTextDoubleImage;
       'common.text-image': CommonTextImage;
+      'common.text-intro': CommonTextIntro;
     }
   }
 }
