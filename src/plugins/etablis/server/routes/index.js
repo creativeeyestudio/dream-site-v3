@@ -7,15 +7,4 @@ module.exports = [
       policies: [],
     },
   },
-
-  {
-    method: 'GET',
-    path: '/sheet',
-    handler: 'sheetController.find',
-    config: {
-      auth: false,
-      policies: [],
-      middlewares: [],
-    },
-  },
 ];

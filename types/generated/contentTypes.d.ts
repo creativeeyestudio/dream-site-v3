@@ -772,57 +772,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface PluginEtablisSheet extends Schema.SingleType {
-  collectionName: 'etablis_sheet';
-  info: {
-    description: "Fiche descriptive de l'\u00E9tablissement";
-    displayName: 'Fiche \u00E9tablissement';
-    pluralName: 'sheets';
-    singularName: 'sheet';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Attribute.Enumeration<
-      ['hotel', 'restaurant', 'hotel-restaurant']
-    > &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.sheet',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    google_maps_link: Attribute.String;
-    hotel_stars: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
-    location: Attribute.JSON &
-      Attribute.CustomField<'plugin::strapi-leaflet-geoman.geojson'>;
-    logo: Attribute.Media<'images'> & Attribute.Required;
-    mail_adress: Attribute.String & Attribute.Required;
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    phone_number: Attribute.String & Attribute.Required;
-    publishedAt: Attribute.DateTime;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.sheet',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1578,7 +1527,6 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::etablis.sheet': PluginEtablisSheet;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;

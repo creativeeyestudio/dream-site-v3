@@ -1,7 +1,7 @@
 'use strict';
 
-const sheet = require('./sheet');
+const myService = require('./my-service');
 
 module.exports = {
-  sheet,
+  myService,
 };
