@@ -815,6 +815,42 @@ export interface PluginEtablisEtablissement extends Schema.SingleType {
   };
 }
 
+export interface PluginEtablisMenu extends Schema.CollectionType {
+  collectionName: 'menus';
+  info: {
+    displayName: 'Cartes et menus';
+    pluralName: 'menus';
+    singularName: 'menu';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::etablis.menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    document: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    nom: Attribute.String;
+    publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'plugin::etablis.menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1571,6 +1607,7 @@ declare module '@strapi/types' {
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::etablis.etablissement': PluginEtablisEtablissement;
+      'plugin::etablis.menu': PluginEtablisMenu;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;
