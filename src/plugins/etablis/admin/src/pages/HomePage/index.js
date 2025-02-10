@@ -6,14 +6,15 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-import pluginId from '../../pluginId';
+import { BaseHeaderLayout, Box, Button, LinkButton } from '@strapi/design-system';
+import Etablissement from '../Etablissement';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>{pluginId}&apos;s HomePage</h1>
-      <p>Happy coding</p>
-    </div>
+    <Box padding={8}>
+      <BaseHeaderLayout title="Etablis" subtitle="Gestion des informations de l'établissement" as="h2" />
+      <LinkButton tag={Etablissement} to="/plugins/etablis/settings">Gérer l'Établissement</LinkButton>
+    </Box>
   );
 };
 

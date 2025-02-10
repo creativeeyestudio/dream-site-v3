@@ -772,6 +772,49 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginEtablisEtablissement extends Schema.SingleType {
+  collectionName: 'etablissements';
+  info: {
+    displayName: 'Etablissement';
+    pluralName: 'etablissements';
+    singularName: 'etablissement';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: true;
+  };
+  attributes: {
+    adresse: Attribute.Text & Attribute.Required;
+    code_postal: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::etablis.etablissement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    email: Attribute.Email & Attribute.Required;
+    logo: Attribute.Media<'images'>;
+    nom: Attribute.String & Attribute.Required;
+    publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    telephone: Attribute.String;
+    type: Attribute.Enumeration<
+      ['H\u00F4tel', 'Restaurant', 'H\u00F4tel-Restaurant', 'SPA']
+    >;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'plugin::etablis.etablissement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    ville: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1527,6 +1570,7 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::etablis.etablissement': PluginEtablisEtablissement;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;
