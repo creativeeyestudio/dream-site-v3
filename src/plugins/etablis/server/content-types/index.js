@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = {};
+const etablissement = require('./etablissement');
+
+module.exports = {
+    etablissement,
+};
