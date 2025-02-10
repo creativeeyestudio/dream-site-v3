@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "etablissements",
+  "info": {
+    "singularName": "etablissement",
+    "pluralName": "etablissements",
+    "displayName": "Etablissement"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "comment": ""
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Hôtel", "Restaurant", "Hôtel-Restaurant", "SPA"
+      ]
+    },
+    "adresse": {
+      "type": "text",
+      "required": true
+    },
+    "code_postal": {
+      "type": "string",
+      "required": true
+    },
+    "ville": {
+      "type": "string",
+      "required": true
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    }
+  }
+}

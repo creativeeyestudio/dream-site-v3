@@ -1,7 +1,9 @@
 'use strict';
 
-const sheet = require('./sheet');
+const myService = require('./my-service');
+const etablissement = require('./etablissement');
 
 module.exports = {
-  sheet,
+  myService,
+  etablissement
 };

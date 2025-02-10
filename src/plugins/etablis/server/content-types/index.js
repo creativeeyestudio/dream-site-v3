@@ -1,8 +1,9 @@
 'use strict';
 
-const sheet = require('./sheet');
+const etablissement = require('./etablissement');
+const menu = require('./menu');
 
 module.exports = {
-    sheet: { schema: sheet }
+    etablissement,
+    menu,
 };
-  
