@@ -772,10 +772,43 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginEtablisChannel extends Schema.SingleType {
+  collectionName: 'channel_managers';
+  info: {
+    displayName: 'Channel Manager';
+    pluralName: 'channels';
+    singularName: 'channel';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::etablis.channel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    lien: Attribute.String;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'plugin::etablis.channel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginEtablisEtablissement extends Schema.SingleType {
   collectionName: 'etablissements';
   info: {
-    displayName: 'Etablissement';
+    displayName: 'Fiche \u00E9tablissement';
     pluralName: 'etablissements';
     singularName: 'etablissement';
   };
@@ -1606,6 +1639,7 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::etablis.channel': PluginEtablisChannel;
       'plugin::etablis.etablissement': PluginEtablisEtablissement;
       'plugin::etablis.menu': PluginEtablisMenu;
       'plugin::i18n.locale': PluginI18NLocale;
