@@ -46,7 +46,6 @@ RUN apk add --no-cache \
   libpng-dev
 
 # Configurer l'environnement pour le mode production ou dev
-ENV NODE_ENV=production
 WORKDIR /opt/
 
 # Copier les fichiers du build (node_modules et app)
@@ -57,6 +56,9 @@ COPY --from=build /opt/app ./
 # Mettre à jour le PATH
 ENV PATH=/opt/node_modules/.bin:$PATH
 
+# Définir une variable d'environnement pour déterminer l'environnement d'exécution
+ENV STRAPI_ENV=production
+
 # Donner les droits à l'utilisateur 'node'
 RUN chown -R node:node /opt/app
 USER node
@@ -64,5 +66,5 @@ USER node
 # Exposer le port pour Strapi
 EXPOSE 1337
 
-# Lancer Strapi en mode dev si c'est le mode dev
+# Lancer Strapi en fonction de l'environnement (dev ou prod)
 CMD [ "sh", "-c", "if [ \"$STRAPI_ENV\" = \"development\" ]; then yarn develop --watch-admin; else yarn start; fi" ]
