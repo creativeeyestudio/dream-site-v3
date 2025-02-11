@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_common_text_intros",
+  "info": {
+    "displayName": "Text-Intro"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}
