@@ -15,9 +15,9 @@ services:
   #   command: npm run dev
 
   # strapi:
-  #   # build:
-  #   #   context: ./back  # Répertoire de votre projet Strapi
-  #   #   dockerfile: Dockerfile
+  #   build:
+  #     context: ./back  # Répertoire de votre projet Strapi
+  #     dockerfile: Dockerfile
   #   image: kevinad/dreamsite-admin:main
   #   container_name: strapi
   #   restart: always
