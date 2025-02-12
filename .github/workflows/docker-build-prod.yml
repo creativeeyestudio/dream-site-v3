@@ -1,4 +1,4 @@
-name: Image Docker Prod
+filename: Image Docker Prod
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       # Étape 3 : Construction de l'image Docker
       - name: Build Docker image
         run: |
-          docker build -t dreamsite-admin:${{ github.ref_name }} .
+          docker build -t dreamsite-admin:${{ github.ref_name }} -f Dockerfile.prod .
 
       # Étape 4 : (Optionnel) Push de l'image vers un registre Docker
       - name: Log in to DockerHub
