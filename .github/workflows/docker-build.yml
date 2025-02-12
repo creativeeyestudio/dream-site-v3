@@ -33,5 +33,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag dreamsite-admin:develop kevinad/dreamsite-admin
+          docker tag dreamsite-admin kevinad/dreamsite-admin:develop
           docker push kevinad/dreamsite-admin:develop
