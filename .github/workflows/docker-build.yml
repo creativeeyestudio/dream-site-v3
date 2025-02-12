@@ -1,10 +1,9 @@
-name: Build and Deploy Strapi Docker Image
+name: Image Docker Dev
 
 on:
   push:
-    tags:
-      - "v*"       # Déclenche sur tous les tags commençant par "v"
-      - "v*-beta"  # Déclenche sur tous les tags contenant "beta"
+    branches:
+      - main
   workflow_dispatch: # Permet le déclenchement manuel depuis l'interface GitHub
 
 jobs:
