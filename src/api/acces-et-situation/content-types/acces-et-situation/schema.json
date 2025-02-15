@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "acces_et_situations",
+  "info": {
+    "singularName": "acces-et-situation",
+    "pluralName": "acces-et-situations",
+    "displayName": "Accès et situation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Accès et situation",
+      "required": true
+    },
+    "introduction": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5video.CKEditor5Video"
+    },
+    "number": {
+      "type": "string"
+    },
+    "adress": {
+      "type": "string",
+      "required": true
+    },
+    "postal_code": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mail": {
+      "type": "email"
+    },
+    "access_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.accordion-item"
+    }
+  }
+}

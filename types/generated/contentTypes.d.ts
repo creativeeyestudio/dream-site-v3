@@ -362,6 +362,55 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAccesEtSituationAccesEtSituation extends Schema.SingleType {
+  collectionName: 'acces_et_situations';
+  info: {
+    description: '';
+    displayName: 'Acc\u00E8s et situation';
+    pluralName: 'acces-et-situations';
+    singularName: 'acces-et-situation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    access_list: Attribute.Component<'content.accordion-item', true>;
+    adress: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acces-et-situation.acces-et-situation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    introduction: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    mail: Attribute.Email;
+    number: Attribute.String;
+    phone: Attribute.String;
+    postal_code: Attribute.String & Attribute.Required;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Acc\u00E8s et situation'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::acces-et-situation.acces-et-situation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1524,6 +1573,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::acces-et-situation.acces-et-situation': ApiAccesEtSituationAccesEtSituation;
       'api::category.category': ApiCategoryCategory;
       'api::google-api-key.google-api-key': ApiGoogleApiKeyGoogleApiKey;
       'api::page.page': ApiPagePage;
