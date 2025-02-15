@@ -41,7 +41,8 @@
         "common.heroscreen",
         "common.html-content",
         "common.text",
-        "common.text-intro"
+        "common.text-intro",
+        "common.block-video"
       ],
       "required": true
     },

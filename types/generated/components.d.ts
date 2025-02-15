@@ -1,5 +1,16 @@
 import type { Attribute, Schema } from '@strapi/strapi';
 
+export interface CommonBlockVideo extends Schema.Component {
+  collectionName: 'components_common_block_videos';
+  info: {
+    displayName: 'block-video';
+    icon: 'play';
+  };
+  attributes: {
+    video_url: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface CommonCarousel extends Schema.Component {
   collectionName: 'components_common_carousels';
   info: {
@@ -131,6 +142,7 @@ export interface CommonTextIntro extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'common.block-video': CommonBlockVideo;
       'common.carousel': CommonCarousel;
       'common.gallery': CommonGallery;
       'common.heroscreen': CommonHeroscreen;

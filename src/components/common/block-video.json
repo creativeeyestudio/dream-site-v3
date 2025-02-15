@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_common_block_videos",
+  "info": {
+    "displayName": "block-video",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "video_url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
