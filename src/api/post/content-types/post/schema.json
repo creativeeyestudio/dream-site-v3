@@ -56,7 +56,8 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 65
     },
     "meta_description": {
       "pluginOptions": {
@@ -65,26 +66,14 @@
         }
       },
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 160
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "posts"
-    },
-    "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "required": true,
-      "customField": "plugin::ckeditor5video.CKEditor5Video"
     },
     "slug": {
       "pluginOptions": {
@@ -94,7 +83,22 @@
       },
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": false
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "common.block-video",
+        "common.accordion-list",
+        "common.map",
+        "post.text",
+        "post.image"
+      ]
     }
   }
 }

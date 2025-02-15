@@ -529,7 +529,7 @@ export interface ApiPagePage extends Schema.CollectionType {
         'common.gallery',
         'common.heroscreen',
         'common.html-content',
-        'common.text',
+        'page.text',
         'common.text-intro',
         'common.block-video',
         'common.accordion-list',
@@ -646,14 +646,15 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    content: Attribute.RichText &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::ckeditor5video.CKEditor5Video',
-        {
-          preset: 'toolbar';
-        }
-      > &
+    content: Attribute.DynamicZone<
+      [
+        'common.block-video',
+        'common.accordion-list',
+        'common.map',
+        'post.text',
+        'post.image'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -687,6 +688,9 @@ export interface ApiPostPost extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
       }>;
     meta_title: Attribute.String &
       Attribute.Required &
@@ -694,13 +698,15 @@ export interface ApiPostPost extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
     slug: Attribute.UID<'api::post.post', 'title'> &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

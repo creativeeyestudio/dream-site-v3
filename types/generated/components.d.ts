@@ -95,17 +95,6 @@ export interface CommonParallax extends Schema.Component {
   };
 }
 
-export interface CommonText extends Schema.Component {
-  collectionName: 'components_common_texts';
-  info: {
-    displayName: 'Text';
-  };
-  attributes: {
-    content: Attribute.Blocks & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface CommonTextDoubleImage extends Schema.Component {
   collectionName: 'components_common_text_double_images';
   info: {
@@ -184,6 +173,45 @@ export interface ContentLinks extends Schema.Component {
   };
 }
 
+export interface PageText extends Schema.Component {
+  collectionName: 'components_common_texts';
+  info: {
+    description: '';
+    displayName: 'Text';
+  };
+  attributes: {
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface PostImage extends Schema.Component {
+  collectionName: 'components_post_images';
+  info: {
+    displayName: 'Image';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface PostText extends Schema.Component {
+  collectionName: 'components_post_texts';
+  info: {
+    displayName: 'Text';
+    icon: 'dashboard';
+  };
+  attributes: {
+    text_content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -195,12 +223,14 @@ declare module '@strapi/types' {
       'common.html-content': CommonHtmlContent;
       'common.map': CommonMap;
       'common.parallax': CommonParallax;
-      'common.text': CommonText;
       'common.text-double-image': CommonTextDoubleImage;
       'common.text-image': CommonTextImage;
       'common.text-intro': CommonTextIntro;
       'content.accordion-item': ContentAccordionItem;
       'content.links': ContentLinks;
+      'page.text': PageText;
+      'post.image': PostImage;
+      'post.text': PostText;
     }
   }
 }
