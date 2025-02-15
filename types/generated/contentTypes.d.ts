@@ -522,18 +522,17 @@ export interface ApiPagePage extends Schema.CollectionType {
   attributes: {
     content_page: Attribute.DynamicZone<
       [
-        'common.text-double-image',
-        'common.carousel',
-        'common.text-image',
-        'common.parallax',
+        'page.text-double-image',
+        'page.carousel',
+        'page.text-image',
+        'page.parallax',
         'common.gallery',
-        'common.heroscreen',
+        'page.heroscreen',
         'common.html-content',
         'page.text',
-        'common.text-intro',
+        'page.text-intro',
         'common.block-video',
-        'common.accordion-list',
-        'common.map'
+        'common.accordion-list'
       ]
     > &
       Attribute.Required &
@@ -647,13 +646,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'api::category.category'
     >;
     content: Attribute.DynamicZone<
-      [
-        'common.block-video',
-        'common.accordion-list',
-        'common.map',
-        'post.text',
-        'post.image'
-      ]
+      ['common.block-video', 'common.accordion-list', 'post.text', 'post.image']
     > &
       Attribute.SetPluginOptions<{
         i18n: {

@@ -95,7 +95,6 @@
       "components": [
         "common.block-video",
         "common.accordion-list",
-        "common.map",
         "post.text",
         "post.image"
       ]

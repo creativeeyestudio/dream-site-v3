@@ -22,18 +22,6 @@ export interface CommonBlockVideo extends Schema.Component {
   };
 }
 
-export interface CommonCarousel extends Schema.Component {
-  collectionName: 'components_common_carousels';
-  info: {
-    description: '';
-    displayName: 'carousel';
-    icon: 'picture';
-  };
-  attributes: {
-    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-  };
-}
-
 export interface CommonGallery extends Schema.Component {
   collectionName: 'components_common_galleries';
   info: {
@@ -46,18 +34,6 @@ export interface CommonGallery extends Schema.Component {
   };
 }
 
-export interface CommonHeroscreen extends Schema.Component {
-  collectionName: 'components_common_heroscreens';
-  info: {
-    description: '';
-    displayName: 'heroscreen';
-    icon: 'picture';
-  };
-  attributes: {
-    image: Attribute.Media<'images', true> & Attribute.Required;
-  };
-}
-
 export interface CommonHtmlContent extends Schema.Component {
   collectionName: 'components_common_html_contents';
   info: {
@@ -66,76 +42,6 @@ export interface CommonHtmlContent extends Schema.Component {
   };
   attributes: {
     code_html: Attribute.Blocks & Attribute.Required;
-  };
-}
-
-export interface CommonMap extends Schema.Component {
-  collectionName: 'components_content_maps';
-  info: {
-    description: '';
-    displayName: 'Map';
-    icon: 'pinMap';
-  };
-  attributes: {
-    Leaflet: Attribute.JSON &
-      Attribute.CustomField<'plugin::strapi-leaflet-geoman.geojson'>;
-  };
-}
-
-export interface CommonParallax extends Schema.Component {
-  collectionName: 'components_common_parallaxes';
-  info: {
-    description: '';
-    displayName: 'parallax';
-    icon: 'picture';
-  };
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required;
-    speed: Attribute.Float & Attribute.DefaultTo<1.5>;
-  };
-}
-
-export interface CommonTextDoubleImage extends Schema.Component {
-  collectionName: 'components_common_text_double_images';
-  info: {
-    description: '';
-    displayName: 'text-double-image';
-    icon: 'stack';
-  };
-  attributes: {
-    accordions: Attribute.Component<'content.accordion-item', true>;
-    image1: Attribute.Media<'images'> & Attribute.Required;
-    image2: Attribute.Media<'images'>;
-    links: Attribute.Component<'content.links', true>;
-    text: Attribute.Blocks & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface CommonTextImage extends Schema.Component {
-  collectionName: 'components_common_text_images';
-  info: {
-    description: '';
-    displayName: 'text-image';
-    icon: 'stack';
-  };
-  attributes: {
-    accordions: Attribute.Component<'content.accordion-item', true>;
-    image: Attribute.Media<'images'> & Attribute.Required;
-    links: Attribute.Component<'content.links', true>;
-    text: Attribute.Blocks;
-    title: Attribute.String;
-  };
-}
-
-export interface CommonTextIntro extends Schema.Component {
-  collectionName: 'components_common_text_intros';
-  info: {
-    displayName: 'Text-Intro';
-  };
-  attributes: {
-    content: Attribute.Blocks & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -173,11 +79,93 @@ export interface ContentLinks extends Schema.Component {
   };
 }
 
+export interface PageCarousel extends Schema.Component {
+  collectionName: 'components_common_carousels';
+  info: {
+    description: '';
+    displayName: 'carousel';
+    icon: 'picture';
+  };
+  attributes: {
+    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+  };
+}
+
+export interface PageHeroscreen extends Schema.Component {
+  collectionName: 'components_common_heroscreens';
+  info: {
+    description: '';
+    displayName: 'heroscreen';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Attribute.Media<'images', true> & Attribute.Required;
+  };
+}
+
+export interface PageParallax extends Schema.Component {
+  collectionName: 'components_common_parallaxes';
+  info: {
+    description: '';
+    displayName: 'parallax';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    speed: Attribute.Float & Attribute.DefaultTo<1.5>;
+  };
+}
+
 export interface PageText extends Schema.Component {
   collectionName: 'components_common_texts';
   info: {
     description: '';
     displayName: 'Text';
+  };
+  attributes: {
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface PageTextDoubleImage extends Schema.Component {
+  collectionName: 'components_common_text_double_images';
+  info: {
+    description: '';
+    displayName: 'text-double-image';
+    icon: 'stack';
+  };
+  attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
+    image1: Attribute.Media<'images'> & Attribute.Required;
+    image2: Attribute.Media<'images'>;
+    links: Attribute.Component<'content.links', true>;
+    text: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface PageTextImage extends Schema.Component {
+  collectionName: 'components_common_text_images';
+  info: {
+    description: '';
+    displayName: 'text-image';
+    icon: 'stack';
+  };
+  attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    links: Attribute.Component<'content.links', true>;
+    text: Attribute.Blocks;
+    title: Attribute.String;
+  };
+}
+
+export interface PageTextIntro extends Schema.Component {
+  collectionName: 'components_common_text_intros';
+  info: {
+    description: '';
+    displayName: 'Text-Intro';
   };
   attributes: {
     content: Attribute.Blocks & Attribute.Required;
@@ -217,18 +205,17 @@ declare module '@strapi/types' {
     export interface Components {
       'common.accordion-list': CommonAccordionList;
       'common.block-video': CommonBlockVideo;
-      'common.carousel': CommonCarousel;
       'common.gallery': CommonGallery;
-      'common.heroscreen': CommonHeroscreen;
       'common.html-content': CommonHtmlContent;
-      'common.map': CommonMap;
-      'common.parallax': CommonParallax;
-      'common.text-double-image': CommonTextDoubleImage;
-      'common.text-image': CommonTextImage;
-      'common.text-intro': CommonTextIntro;
       'content.accordion-item': ContentAccordionItem;
       'content.links': ContentLinks;
+      'page.carousel': PageCarousel;
+      'page.heroscreen': PageHeroscreen;
+      'page.parallax': PageParallax;
       'page.text': PageText;
+      'page.text-double-image': PageTextDoubleImage;
+      'page.text-image': PageTextImage;
+      'page.text-intro': PageTextIntro;
       'post.image': PostImage;
       'post.text': PostText;
     }
