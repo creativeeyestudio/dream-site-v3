@@ -1,5 +1,16 @@
 import type { Attribute, Schema } from '@strapi/strapi';
 
+export interface CommonAccordionList extends Schema.Component {
+  collectionName: 'components_common_accordion_lists';
+  info: {
+    displayName: 'Accordion List';
+    icon: 'bulletList';
+  };
+  attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
+  };
+}
+
 export interface CommonBlockVideo extends Schema.Component {
   collectionName: 'components_common_block_videos';
   info: {
@@ -58,21 +69,6 @@ export interface CommonHtmlContent extends Schema.Component {
   };
 }
 
-export interface CommonLinks extends Schema.Component {
-  collectionName: 'components_common_links';
-  info: {
-    description: '';
-    displayName: 'Links';
-  };
-  attributes: {
-    external_link: Attribute.String;
-    label: Attribute.String;
-    medias: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    pages: Attribute.Relation<'common.links', 'oneToMany', 'api::page.page'>;
-    posts: Attribute.Relation<'common.links', 'oneToMany', 'api::post.post'>;
-  };
-}
-
 export interface CommonParallax extends Schema.Component {
   collectionName: 'components_common_parallaxes';
   info: {
@@ -105,9 +101,10 @@ export interface CommonTextDoubleImage extends Schema.Component {
     icon: 'stack';
   };
   attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
     image1: Attribute.Media<'images'> & Attribute.Required;
     image2: Attribute.Media<'images'>;
-    links: Attribute.Component<'common.links', true>;
+    links: Attribute.Component<'content.links', true>;
     text: Attribute.Blocks & Attribute.Required;
     title: Attribute.String & Attribute.Required;
   };
@@ -121,8 +118,9 @@ export interface CommonTextImage extends Schema.Component {
     icon: 'stack';
   };
   attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
     image: Attribute.Media<'images'> & Attribute.Required;
-    links: Attribute.Component<'common.links', true>;
+    links: Attribute.Component<'content.links', true>;
     text: Attribute.Blocks;
     title: Attribute.String;
   };
@@ -139,20 +137,56 @@ export interface CommonTextIntro extends Schema.Component {
   };
 }
 
+export interface ContentAccordionItem extends Schema.Component {
+  collectionName: 'components_content_accordion_items';
+  info: {
+    displayName: 'Accordion Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    label: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ContentLinks extends Schema.Component {
+  collectionName: 'components_common_links';
+  info: {
+    description: '';
+    displayName: 'Links';
+  };
+  attributes: {
+    external_link: Attribute.String;
+    label: Attribute.String;
+    medias: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    pages: Attribute.Relation<'content.links', 'oneToMany', 'api::page.page'>;
+    posts: Attribute.Relation<'content.links', 'oneToMany', 'api::post.post'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'common.accordion-list': CommonAccordionList;
       'common.block-video': CommonBlockVideo;
       'common.carousel': CommonCarousel;
       'common.gallery': CommonGallery;
       'common.heroscreen': CommonHeroscreen;
       'common.html-content': CommonHtmlContent;
-      'common.links': CommonLinks;
       'common.parallax': CommonParallax;
       'common.text': CommonText;
       'common.text-double-image': CommonTextDoubleImage;
       'common.text-image': CommonTextImage;
       'common.text-intro': CommonTextIntro;
+      'content.accordion-item': ContentAccordionItem;
+      'content.links': ContentLinks;
     }
   }
 }

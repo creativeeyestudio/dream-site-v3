@@ -24,7 +24,12 @@
     "links": {
       "type": "component",
       "repeatable": true,
-      "component": "common.links"
+      "component": "content.links"
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.accordion-item"
     }
   }
 }

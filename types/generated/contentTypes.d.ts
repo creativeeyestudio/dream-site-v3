@@ -482,7 +482,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'common.html-content',
         'common.text',
         'common.text-intro',
-        'common.block-video'
+        'common.block-video',
+        'common.accordion-list'
       ]
     > &
       Attribute.Required &
