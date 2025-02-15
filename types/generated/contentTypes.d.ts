@@ -772,117 +772,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface PluginEtablisChannel extends Schema.SingleType {
-  collectionName: 'channel_managers';
-  info: {
-    displayName: 'Channel Manager';
-    pluralName: 'channels';
-    singularName: 'channel';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.channel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    lien: Attribute.String;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.channel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginEtablisEtablissement extends Schema.SingleType {
-  collectionName: 'etablissements';
-  info: {
-    displayName: 'Fiche \u00E9tablissement';
-    pluralName: 'etablissements';
-    singularName: 'etablissement';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: true;
-  };
-  attributes: {
-    adresse: Attribute.Text & Attribute.Required;
-    code_postal: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.etablissement',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    email: Attribute.Email & Attribute.Required;
-    nom: Attribute.String & Attribute.Required;
-    publishedAt: Attribute.DateTime;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    telephone: Attribute.String;
-    type: Attribute.Enumeration<
-      ['H\u00F4tel', 'Restaurant', 'H\u00F4tel-Restaurant', 'SPA']
-    >;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.etablissement',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    ville: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface PluginEtablisMenu extends Schema.CollectionType {
-  collectionName: 'menus';
-  info: {
-    displayName: 'Cartes et menus';
-    pluralName: 'menus';
-    singularName: 'menu';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    document: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    nom: Attribute.String;
-    publishedAt: Attribute.DateTime;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1638,9 +1527,6 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::etablis.channel': PluginEtablisChannel;
-      'plugin::etablis.etablissement': PluginEtablisEtablissement;
-      'plugin::etablis.menu': PluginEtablisMenu;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;

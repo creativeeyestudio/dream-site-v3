@@ -27,11 +27,12 @@ export interface CommonGallery extends Schema.Component {
 export interface CommonHeroscreen extends Schema.Component {
   collectionName: 'components_common_heroscreens';
   info: {
+    description: '';
     displayName: 'heroscreen';
     icon: 'picture';
   };
   attributes: {
-    image: Attribute.Media<'images'>;
+    image: Attribute.Media<'images', true> & Attribute.Required;
   };
 }
 
@@ -70,6 +71,7 @@ export interface CommonParallax extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media<'images'> & Attribute.Required;
+    speed: Attribute.Float & Attribute.DefaultTo<1.5>;
   };
 }
 
