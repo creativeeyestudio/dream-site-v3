@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_post_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "text_content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5video.CKEditor5Video"
+    }
+  }
+}

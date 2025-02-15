@@ -362,6 +362,55 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAccesEtSituationAccesEtSituation extends Schema.SingleType {
+  collectionName: 'acces_et_situations';
+  info: {
+    description: '';
+    displayName: 'Acc\u00E8s et situation';
+    pluralName: 'acces-et-situations';
+    singularName: 'acces-et-situation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    access_list: Attribute.Component<'content.accordion-item', true>;
+    adress: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acces-et-situation.acces-et-situation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    introduction: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    mail: Attribute.Email;
+    number: Attribute.String;
+    phone: Attribute.String;
+    postal_code: Attribute.String & Attribute.Required;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Acc\u00E8s et situation'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::acces-et-situation.acces-et-situation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -473,15 +522,17 @@ export interface ApiPagePage extends Schema.CollectionType {
   attributes: {
     content_page: Attribute.DynamicZone<
       [
-        'common.text-double-image',
-        'common.carousel',
-        'common.text-image',
-        'common.parallax',
+        'page.text-double-image',
+        'page.carousel',
+        'page.text-image',
+        'page.parallax',
         'common.gallery',
-        'common.heroscreen',
+        'page.heroscreen',
         'common.html-content',
-        'common.text',
-        'common.text-intro'
+        'page.text',
+        'page.text-intro',
+        'common.block-video',
+        'common.accordion-list'
       ]
     > &
       Attribute.Required &
@@ -594,14 +645,9 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    content: Attribute.RichText &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::ckeditor5video.CKEditor5Video',
-        {
-          preset: 'toolbar';
-        }
-      > &
+    content: Attribute.DynamicZone<
+      ['common.block-video', 'common.accordion-list', 'post.text', 'post.image']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -635,6 +681,9 @@ export interface ApiPostPost extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
       }>;
     meta_title: Attribute.String &
       Attribute.Required &
@@ -642,13 +691,15 @@ export interface ApiPostPost extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
     slug: Attribute.UID<'api::post.post', 'title'> &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -765,117 +816,6 @@ export interface PluginContentReleasesReleaseAction
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'plugin::content-releases.release-action',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginEtablisChannel extends Schema.SingleType {
-  collectionName: 'channel_managers';
-  info: {
-    displayName: 'Channel Manager';
-    pluralName: 'channels';
-    singularName: 'channel';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.channel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    lien: Attribute.String;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.channel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginEtablisEtablissement extends Schema.SingleType {
-  collectionName: 'etablissements';
-  info: {
-    displayName: 'Fiche \u00E9tablissement';
-    pluralName: 'etablissements';
-    singularName: 'etablissement';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: true;
-  };
-  attributes: {
-    adresse: Attribute.Text & Attribute.Required;
-    code_postal: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.etablissement',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    email: Attribute.Email & Attribute.Required;
-    nom: Attribute.String & Attribute.Required;
-    publishedAt: Attribute.DateTime;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    telephone: Attribute.String;
-    type: Attribute.Enumeration<
-      ['H\u00F4tel', 'Restaurant', 'H\u00F4tel-Restaurant', 'SPA']
-    >;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.etablissement',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    ville: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface PluginEtablisMenu extends Schema.CollectionType {
-  collectionName: 'menus';
-  info: {
-    displayName: 'Cartes et menus';
-    pluralName: 'menus';
-    singularName: 'menu';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::etablis.menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    document: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    nom: Attribute.String;
-    publishedAt: Attribute.DateTime;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'plugin::etablis.menu',
       'oneToOne',
       'admin::user'
     > &
@@ -1632,15 +1572,13 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::acces-et-situation.acces-et-situation': ApiAccesEtSituationAccesEtSituation;
       'api::category.category': ApiCategoryCategory;
       'api::google-api-key.google-api-key': ApiGoogleApiKeyGoogleApiKey;
       'api::page.page': ApiPagePage;
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::etablis.channel': PluginEtablisChannel;
-      'plugin::etablis.etablissement': PluginEtablisEtablissement;
-      'plugin::etablis.menu': PluginEtablisMenu;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;
