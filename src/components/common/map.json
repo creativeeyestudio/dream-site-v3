@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_maps",
+  "info": {
+    "displayName": "Map",
+    "description": "",
+    "icon": "pinMap"
+  },
+  "options": {},
+  "attributes": {
+    "Leaflet": {
+      "type": "customField",
+      "customField": "plugin::strapi-leaflet-geoman.geojson"
+    }
+  }
+}

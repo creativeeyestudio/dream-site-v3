@@ -69,6 +69,19 @@ export interface CommonHtmlContent extends Schema.Component {
   };
 }
 
+export interface CommonMap extends Schema.Component {
+  collectionName: 'components_content_maps';
+  info: {
+    description: '';
+    displayName: 'Map';
+    icon: 'pinMap';
+  };
+  attributes: {
+    Leaflet: Attribute.JSON &
+      Attribute.CustomField<'plugin::strapi-leaflet-geoman.geojson'>;
+  };
+}
+
 export interface CommonParallax extends Schema.Component {
   collectionName: 'components_common_parallaxes';
   info: {
@@ -180,6 +193,7 @@ declare module '@strapi/types' {
       'common.gallery': CommonGallery;
       'common.heroscreen': CommonHeroscreen;
       'common.html-content': CommonHtmlContent;
+      'common.map': CommonMap;
       'common.parallax': CommonParallax;
       'common.text': CommonText;
       'common.text-double-image': CommonTextDoubleImage;

@@ -43,7 +43,8 @@
         "common.text",
         "common.text-intro",
         "common.block-video",
-        "common.accordion-list"
+        "common.accordion-list",
+        "common.map"
       ],
       "required": true
     },
