@@ -827,7 +827,6 @@ export interface PluginEtablisEtablissement extends Schema.SingleType {
     > &
       Attribute.Private;
     email: Attribute.Email & Attribute.Required;
-    logo: Attribute.Media<'images'>;
     nom: Attribute.String & Attribute.Required;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
