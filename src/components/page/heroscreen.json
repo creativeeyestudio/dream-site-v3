@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "image": {
+    "images": {
       "type": "media",
       "multiple": true,
       "required": true,

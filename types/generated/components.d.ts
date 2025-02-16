@@ -99,7 +99,7 @@ export interface PageHeroscreen extends Schema.Component {
     icon: 'picture';
   };
   attributes: {
-    image: Attribute.Media<'images', true> & Attribute.Required;
+    images: Attribute.Media<'images', true> & Attribute.Required;
   };
 }
 
