@@ -45,16 +45,6 @@
       ],
       "required": true
     },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
-      "targetField": "title",
-      "required": true
-    },
     "homepage": {
       "pluginOptions": {
         "i18n": {
@@ -129,6 +119,18 @@
         }
       },
       "type": "boolean"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "options": {
+        "pattern": "title"
+      },
+      "customField": "plugin::slug.slug"
     }
   }
 }
