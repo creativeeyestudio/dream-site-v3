@@ -1,8 +1,8 @@
 {
-  "name": "back",
+  "name": "dream-site-back",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "3.0.0",
+  "description": "Dream Site Admin",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -18,6 +18,7 @@
     "axios": "^1.7.9",
     "back": "file:",
     "better-sqlite3": "8.6.0",
+    "custom-slug": "^2.1.1",
     "mysql": "^2.18.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -31,7 +32,7 @@
     "styled-components": "5.3.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Creative Eye Studio"
   },
   "strapi": {
     "uuid": "29a6df3a-bcc4-450e-81d9-0e17183c5335"

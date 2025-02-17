@@ -581,12 +581,6 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    og_type: Attribute.Enumeration<['article', 'website', 'product']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     publishedAt: Attribute.DateTime;
     secondary_page: Attribute.Boolean &
       Attribute.SetPluginOptions<{
@@ -597,11 +591,16 @@ export interface ApiPagePage extends Schema.CollectionType {
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
-    slug: Attribute.UID<'api::page.page', 'title'> &
-      Attribute.Required &
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     social_image: Attribute.Media<'images'> &
@@ -699,10 +698,16 @@ export interface ApiPostPost extends Schema.CollectionType {
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
-    slug: Attribute.UID<'api::post.post', 'title'> &
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     title: Attribute.String &
