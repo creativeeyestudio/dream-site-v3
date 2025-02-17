@@ -1,7 +1,8 @@
 {
   "collectionName": "components_common_text_intros",
   "info": {
-    "displayName": "Text-Intro"
+    "displayName": "Text-Intro",
+    "description": ""
   },
   "options": {},
   "attributes": {

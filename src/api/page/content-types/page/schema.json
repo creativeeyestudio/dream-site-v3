@@ -33,15 +33,17 @@
       },
       "type": "dynamiczone",
       "components": [
-        "common.text-double-image",
-        "common.carousel",
-        "common.text-image",
-        "common.parallax",
+        "page.text-double-image",
+        "page.carousel",
+        "page.text-image",
+        "page.parallax",
         "common.gallery",
-        "common.heroscreen",
+        "page.heroscreen",
         "common.html-content",
-        "common.text",
-        "common.text-intro"
+        "page.text",
+        "page.text-intro",
+        "common.block-video",
+        "common.accordion-list"
       ],
       "required": true
     },

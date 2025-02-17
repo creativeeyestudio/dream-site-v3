@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_content_accordion_items",
+  "info": {
+    "displayName": "Accordion Item",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5video.CKEditor5Video"
+    }
+  }
+}

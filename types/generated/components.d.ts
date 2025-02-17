@@ -1,14 +1,24 @@
 import type { Attribute, Schema } from '@strapi/strapi';
 
-export interface CommonCarousel extends Schema.Component {
-  collectionName: 'components_common_carousels';
+export interface CommonAccordionList extends Schema.Component {
+  collectionName: 'components_common_accordion_lists';
   info: {
-    description: '';
-    displayName: 'carousel';
-    icon: 'picture';
+    displayName: 'Accordion List';
+    icon: 'bulletList';
   };
   attributes: {
-    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    accordions: Attribute.Component<'content.accordion-item', true>;
+  };
+}
+
+export interface CommonBlockVideo extends Schema.Component {
+  collectionName: 'components_common_block_videos';
+  info: {
+    displayName: 'block-video';
+    icon: 'play';
+  };
+  attributes: {
+    video_url: Attribute.String & Attribute.Required;
   };
 }
 
@@ -24,17 +34,6 @@ export interface CommonGallery extends Schema.Component {
   };
 }
 
-export interface CommonHeroscreen extends Schema.Component {
-  collectionName: 'components_common_heroscreens';
-  info: {
-    displayName: 'heroscreen';
-    icon: 'picture';
-  };
-  attributes: {
-    image: Attribute.Media<'images'>;
-  };
-}
-
 export interface CommonHtmlContent extends Schema.Component {
   collectionName: 'components_common_html_contents';
   info: {
@@ -46,7 +45,26 @@ export interface CommonHtmlContent extends Schema.Component {
   };
 }
 
-export interface CommonLinks extends Schema.Component {
+export interface ContentAccordionItem extends Schema.Component {
+  collectionName: 'components_content_accordion_items';
+  info: {
+    displayName: 'Accordion Item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    label: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ContentLinks extends Schema.Component {
   collectionName: 'components_common_links';
   info: {
     description: '';
@@ -56,12 +74,36 @@ export interface CommonLinks extends Schema.Component {
     external_link: Attribute.String;
     label: Attribute.String;
     medias: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    pages: Attribute.Relation<'common.links', 'oneToMany', 'api::page.page'>;
-    posts: Attribute.Relation<'common.links', 'oneToMany', 'api::post.post'>;
+    pages: Attribute.Relation<'content.links', 'oneToMany', 'api::page.page'>;
+    posts: Attribute.Relation<'content.links', 'oneToMany', 'api::post.post'>;
   };
 }
 
-export interface CommonParallax extends Schema.Component {
+export interface PageCarousel extends Schema.Component {
+  collectionName: 'components_common_carousels';
+  info: {
+    description: '';
+    displayName: 'carousel';
+    icon: 'picture';
+  };
+  attributes: {
+    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+  };
+}
+
+export interface PageHeroscreen extends Schema.Component {
+  collectionName: 'components_common_heroscreens';
+  info: {
+    description: '';
+    displayName: 'heroscreen';
+    icon: 'picture';
+  };
+  attributes: {
+    images: Attribute.Media<'images', true> & Attribute.Required;
+  };
+}
+
+export interface PageParallax extends Schema.Component {
   collectionName: 'components_common_parallaxes';
   info: {
     description: '';
@@ -70,12 +112,14 @@ export interface CommonParallax extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media<'images'> & Attribute.Required;
+    speed: Attribute.Float & Attribute.DefaultTo<1.5>;
   };
 }
 
-export interface CommonText extends Schema.Component {
+export interface PageText extends Schema.Component {
   collectionName: 'components_common_texts';
   info: {
+    description: '';
     displayName: 'Text';
   };
   attributes: {
@@ -84,7 +128,7 @@ export interface CommonText extends Schema.Component {
   };
 }
 
-export interface CommonTextDoubleImage extends Schema.Component {
+export interface PageTextDoubleImage extends Schema.Component {
   collectionName: 'components_common_text_double_images';
   info: {
     description: '';
@@ -92,15 +136,16 @@ export interface CommonTextDoubleImage extends Schema.Component {
     icon: 'stack';
   };
   attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
     image1: Attribute.Media<'images'> & Attribute.Required;
     image2: Attribute.Media<'images'>;
-    links: Attribute.Component<'common.links', true>;
+    links: Attribute.Component<'content.links', true>;
     text: Attribute.Blocks & Attribute.Required;
     title: Attribute.String & Attribute.Required;
   };
 }
 
-export interface CommonTextImage extends Schema.Component {
+export interface PageTextImage extends Schema.Component {
   collectionName: 'components_common_text_images';
   info: {
     description: '';
@@ -108,16 +153,18 @@ export interface CommonTextImage extends Schema.Component {
     icon: 'stack';
   };
   attributes: {
+    accordions: Attribute.Component<'content.accordion-item', true>;
     image: Attribute.Media<'images'> & Attribute.Required;
-    links: Attribute.Component<'common.links', true>;
+    links: Attribute.Component<'content.links', true>;
     text: Attribute.Blocks;
     title: Attribute.String;
   };
 }
 
-export interface CommonTextIntro extends Schema.Component {
+export interface PageTextIntro extends Schema.Component {
   collectionName: 'components_common_text_intros';
   info: {
+    description: '';
     displayName: 'Text-Intro';
   };
   attributes: {
@@ -126,19 +173,51 @@ export interface CommonTextIntro extends Schema.Component {
   };
 }
 
+export interface PostImage extends Schema.Component {
+  collectionName: 'components_post_images';
+  info: {
+    displayName: 'Image';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface PostText extends Schema.Component {
+  collectionName: 'components_post_texts';
+  info: {
+    displayName: 'Text';
+    icon: 'dashboard';
+  };
+  attributes: {
+    text_content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5video.CKEditor5Video',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'common.carousel': CommonCarousel;
+      'common.accordion-list': CommonAccordionList;
+      'common.block-video': CommonBlockVideo;
       'common.gallery': CommonGallery;
-      'common.heroscreen': CommonHeroscreen;
       'common.html-content': CommonHtmlContent;
-      'common.links': CommonLinks;
-      'common.parallax': CommonParallax;
-      'common.text': CommonText;
-      'common.text-double-image': CommonTextDoubleImage;
-      'common.text-image': CommonTextImage;
-      'common.text-intro': CommonTextIntro;
+      'content.accordion-item': ContentAccordionItem;
+      'content.links': ContentLinks;
+      'page.carousel': PageCarousel;
+      'page.heroscreen': PageHeroscreen;
+      'page.parallax': PageParallax;
+      'page.text': PageText;
+      'page.text-double-image': PageTextDoubleImage;
+      'page.text-image': PageTextImage;
+      'page.text-intro': PageTextIntro;
+      'post.image': PostImage;
+      'post.text': PostText;
     }
   }
 }
