@@ -17,13 +17,6 @@
       "default": "Accès et situation",
       "required": true
     },
-    "introduction": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "customField": "plugin::ckeditor5video.CKEditor5Video"
-    },
     "number": {
       "type": "string"
     },

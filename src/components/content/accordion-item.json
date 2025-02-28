@@ -9,14 +9,6 @@
     "label": {
       "type": "string",
       "required": true
-    },
-    "content": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "required": true,
-      "customField": "plugin::ckeditor5video.CKEditor5Video"
     }
   }
 }
