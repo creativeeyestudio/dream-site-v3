@@ -1,4 +1,4 @@
-filename: Image Docker Prod
+name: Image Docker Prod
 
 on:
   push:
