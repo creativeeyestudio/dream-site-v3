@@ -1,8 +1,9 @@
 {
   "collectionName": "components_common_block_videos",
   "info": {
-    "displayName": "block-video",
-    "icon": "play"
+    "displayName": "Block Video",
+    "icon": "play",
+    "description": ""
   },
   "options": {},
   "attributes": {

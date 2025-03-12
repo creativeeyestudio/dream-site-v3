@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_common_link_image_lists",
+  "info": {
+    "displayName": "Link Image List"
+  },
+  "options": {},
+  "attributes": {
+    "link_images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.link-image"
+    }
+  }
+}

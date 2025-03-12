@@ -6,12 +6,5 @@
   },
   "options": {},
   "attributes": {
-    "text_content": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "customField": "plugin::ckeditor5video.CKEditor5Video"
-    }
   }
 }

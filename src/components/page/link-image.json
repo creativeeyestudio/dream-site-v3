@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_link_images",
+  "info": {
+    "displayName": "Link Image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "external_link": {
+      "type": "string"
+    }
+  }
+}

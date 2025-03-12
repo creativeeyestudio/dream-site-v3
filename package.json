@@ -1,8 +1,8 @@
 {
-  "name": "back",
+  "name": "dreamsite_baas",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "BAAS de DreamSite V3 sur la base de Strapi",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -22,16 +22,13 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
-    "strapi-leaflet-geoman": "^0.1.32",
-    "strapi-plugin-ckeditor-video": "^0.0.5",
     "strapi-plugin-navigation": "^2.5.5",
     "strapi-plugin-populate-deep": "^3.0.1",
-    "strapi-plugin-sitemap": "^3.2.1",
     "strapi-plugin-slugify": "^2.3.8",
     "styled-components": "5.3.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Acuité Digitale"
   },
   "strapi": {
     "uuid": "29a6df3a-bcc4-450e-81d9-0e17183c5335"
