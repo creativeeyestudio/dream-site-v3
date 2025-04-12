@@ -1,17 +1,17 @@
-import type { Schema, Struct } from '@strapi/strapi';
+import type { Attribute, Schema } from '@strapi/strapi';
 
-export interface CommonAccordionList extends Struct.ComponentSchema {
+export interface CommonAccordionList extends Schema.Component {
   collectionName: 'components_common_accordion_lists';
   info: {
     displayName: 'Accordion List';
     icon: 'bulletList';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
+    accordions: Attribute.Component<'content.accordion-item', true>;
   };
 }
 
-export interface CommonBlockVideo extends Struct.ComponentSchema {
+export interface CommonBlockVideo extends Schema.Component {
   collectionName: 'components_common_block_videos';
   info: {
     description: '';
@@ -19,11 +19,11 @@ export interface CommonBlockVideo extends Struct.ComponentSchema {
     icon: 'play';
   };
   attributes: {
-    video_url: Schema.Attribute.String & Schema.Attribute.Required;
+    video_url: Attribute.String & Attribute.Required;
   };
 }
 
-export interface CommonGallery extends Struct.ComponentSchema {
+export interface CommonGallery extends Schema.Component {
   collectionName: 'components_common_galleries';
   info: {
     description: '';
@@ -31,11 +31,11 @@ export interface CommonGallery extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    images: Schema.Attribute.Media<'images', true>;
+    images: Attribute.Media<'images', true>;
   };
 }
 
-export interface CommonHtmlContent extends Struct.ComponentSchema {
+export interface CommonHtmlContent extends Schema.Component {
   collectionName: 'components_common_html_contents';
   info: {
     description: '';
@@ -43,50 +43,47 @@ export interface CommonHtmlContent extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    code_html: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    code_html: Attribute.Blocks & Attribute.Required;
   };
 }
 
-export interface CommonLinkImageList extends Struct.ComponentSchema {
+export interface CommonLinkImageList extends Schema.Component {
   collectionName: 'components_common_link_image_lists';
   info: {
     displayName: 'Link Image List';
   };
   attributes: {
-    link_images: Schema.Attribute.Component<'page.link-image', true>;
+    link_images: Attribute.Component<'page.link-image', true>;
   };
 }
 
-export interface ContentAccordionItem extends Struct.ComponentSchema {
+export interface ContentAccordionItem extends Schema.Component {
   collectionName: 'components_content_accordion_items';
   info: {
     displayName: 'Accordion Item';
     icon: 'bulletList';
   };
   attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Attribute.String & Attribute.Required;
   };
 }
 
-export interface ContentLinks extends Struct.ComponentSchema {
+export interface ContentLinks extends Schema.Component {
   collectionName: 'components_common_links';
   info: {
     description: '';
     displayName: 'Links';
   };
   attributes: {
-    external_link: Schema.Attribute.String;
-    label: Schema.Attribute.String;
-    medias: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    pages: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
-    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    external_link: Attribute.String;
+    label: Attribute.String;
+    medias: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    pages: Attribute.Relation<'content.links', 'oneToMany', 'api::page.page'>;
+    posts: Attribute.Relation<'content.links', 'oneToMany', 'api::post.post'>;
   };
 }
 
-export interface PageCarousel extends Struct.ComponentSchema {
+export interface PageCarousel extends Schema.Component {
   collectionName: 'components_common_carousels';
   info: {
     description: '';
@@ -94,14 +91,11 @@ export interface PageCarousel extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    Images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
   };
 }
 
-export interface PageHeroscreen extends Struct.ComponentSchema {
+export interface PageHeroscreen extends Schema.Component {
   collectionName: 'components_common_heroscreens';
   info: {
     description: '';
@@ -109,25 +103,25 @@ export interface PageHeroscreen extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    images: Attribute.Media<'images', true> & Attribute.Required;
   };
 }
 
-export interface PageLinkImage extends Struct.ComponentSchema {
+export interface PageLinkImage extends Schema.Component {
   collectionName: 'components_page_link_images';
   info: {
     description: '';
     displayName: 'Link Image';
   };
   attributes: {
-    external_link: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
-    title: Schema.Attribute.String;
+    external_link: Attribute.String;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    page: Attribute.Relation<'page.link-image', 'oneToOne', 'api::page.page'>;
+    title: Attribute.String;
   };
 }
 
-export interface PageParallax extends Struct.ComponentSchema {
+export interface PageParallax extends Schema.Component {
   collectionName: 'components_common_parallaxes';
   info: {
     description: '';
@@ -135,24 +129,24 @@ export interface PageParallax extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    speed: Schema.Attribute.Float & Schema.Attribute.DefaultTo<1.5>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    speed: Attribute.Float & Attribute.DefaultTo<1.5>;
   };
 }
 
-export interface PageText extends Struct.ComponentSchema {
+export interface PageText extends Schema.Component {
   collectionName: 'components_common_texts';
   info: {
     description: '';
     displayName: 'Text';
   };
   attributes: {
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
-export interface PageTextDoubleImage extends Struct.ComponentSchema {
+export interface PageTextDoubleImage extends Schema.Component {
   collectionName: 'components_common_text_double_images';
   info: {
     description: '';
@@ -160,16 +154,16 @@ export interface PageTextDoubleImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
-    image1: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    image2: Schema.Attribute.Media<'images'>;
-    links: Schema.Attribute.Component<'content.links', true>;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    accordions: Attribute.Component<'content.accordion-item', true>;
+    image1: Attribute.Media<'images'> & Attribute.Required;
+    image2: Attribute.Media<'images'>;
+    links: Attribute.Component<'content.links', true>;
+    text: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
-export interface PageTextImage extends Struct.ComponentSchema {
+export interface PageTextImage extends Schema.Component {
   collectionName: 'components_common_text_images';
   info: {
     description: '';
@@ -177,37 +171,37 @@ export interface PageTextImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    links: Schema.Attribute.Component<'content.links', true>;
-    text: Schema.Attribute.Blocks;
-    title: Schema.Attribute.String;
+    accordions: Attribute.Component<'content.accordion-item', true>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    links: Attribute.Component<'content.links', true>;
+    text: Attribute.Blocks;
+    title: Attribute.String;
   };
 }
 
-export interface PageTextIntro extends Struct.ComponentSchema {
+export interface PageTextIntro extends Schema.Component {
   collectionName: 'components_common_text_intros';
   info: {
     description: '';
     displayName: 'Text-Intro';
   };
   attributes: {
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
-export interface PostImage extends Struct.ComponentSchema {
+export interface PostImage extends Schema.Component {
   collectionName: 'components_post_images';
   info: {
     displayName: 'Image';
   };
   attributes: {
-    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
-export interface PostText extends Struct.ComponentSchema {
+export interface PostText extends Schema.Component {
   collectionName: 'components_post_texts';
   info: {
     displayName: 'Text';
@@ -216,9 +210,9 @@ export interface PostText extends Struct.ComponentSchema {
   attributes: {};
 }
 
-declare module '@strapi/strapi' {
-  export module Public {
-    export interface ComponentSchemas {
+declare module '@strapi/types' {
+  export module Shared {
+    export interface Components {
       'common.accordion-list': CommonAccordionList;
       'common.block-video': CommonBlockVideo;
       'common.gallery': CommonGallery;
