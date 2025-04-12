@@ -11,10 +11,10 @@
     "deploy": "strapi deploy"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "4.25.15",
-    "@strapi/plugin-i18n": "4.25.15",
-    "@strapi/plugin-users-permissions": "4.25.15",
-    "@strapi/strapi": "4.25.15",
+    "@strapi/plugin-cloud": "4.25.22",
+    "@strapi/plugin-i18n": "4.25.22",
+    "@strapi/plugin-users-permissions": "4.25.22",
+    "@strapi/strapi": "4.25.22",
     "axios": "^1.7.9",
     "back": "file:",
     "better-sqlite3": "8.6.0",
