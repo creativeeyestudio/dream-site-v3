@@ -12,13 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "default": "Accès et situation",
-      "required": true
-    },
-    "number": {
-      "type": "string"
+    "map_locale": {
+      "type": "customField",
+      "options": {
+        "info": true
+      },
+      "customField": "plugin::strapi-location-picker.location-picker"
     },
     "adress": {
       "type": "string",
@@ -37,11 +36,6 @@
     },
     "mail": {
       "type": "email"
-    },
-    "access_list": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.accordion-item"
     }
   }
 }
