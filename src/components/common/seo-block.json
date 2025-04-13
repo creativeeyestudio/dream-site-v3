@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_common_seo_blocks",
+  "info": {
+    "displayName": "SEO Block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string",
+      "required": true
+    },
+    "meta_desc": {
+      "type": "text",
+      "required": true
+    },
+    "social_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "og_title": {
+      "type": "string"
+    },
+    "og_desc": {
+      "type": "text"
+    },
+    "twitter_title": {
+      "type": "string"
+    },
+    "twitter_desc": {
+      "type": "text"
+    },
+    "twitter_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

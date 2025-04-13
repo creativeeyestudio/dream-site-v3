@@ -57,6 +57,26 @@ export interface CommonLinkImageList extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonSeoBlock extends Struct.ComponentSchema {
+  collectionName: 'components_common_seo_blocks';
+  info: {
+    description: '';
+    displayName: 'SEO Block';
+  };
+  attributes: {
+    meta_desc: Schema.Attribute.Text & Schema.Attribute.Required;
+    meta_title: Schema.Attribute.String & Schema.Attribute.Required;
+    og_desc: Schema.Attribute.Text;
+    og_title: Schema.Attribute.String;
+    social_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    twitter_desc: Schema.Attribute.Text;
+    twitter_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    twitter_title: Schema.Attribute.String;
+  };
+}
+
 export interface ContentAccordionItem extends Struct.ComponentSchema {
   collectionName: 'components_content_accordion_items';
   info: {
@@ -224,6 +244,7 @@ declare module '@strapi/strapi' {
       'common.gallery': CommonGallery;
       'common.html-content': CommonHtmlContent;
       'common.link-image-list': CommonLinkImageList;
+      'common.seo-block': CommonSeoBlock;
       'content.accordion-item': ContentAccordionItem;
       'content.links': ContentLinks;
       'page.carousel': PageCarousel;

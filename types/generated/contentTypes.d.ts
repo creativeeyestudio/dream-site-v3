@@ -447,38 +447,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGoogleApiKeyGoogleApiKey extends Struct.SingleTypeSchema {
-  collectionName: 'google_api_keys';
-  info: {
-    description: '';
-    displayName: 'Google API Key';
-    pluralName: 'google-api-keys';
-    singularName: 'google-api-key';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ads: Schema.Attribute.String;
-    analytics: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::google-api-key.google-api-key'
-    > &
-      Schema.Attribute.Private;
-    maps: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    tag_manager: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
   collectionName: 'legal_notices';
   info: {
@@ -569,36 +537,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
-    meta_desc: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    meta_title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    og_desc: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    og_title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    og_type: Schema.Attribute.Enumeration<['article', 'website', 'product']> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     secondary_page: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
@@ -606,17 +544,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    seo: Schema.Attribute.Component<'common.seo-block', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    social_image: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     title: Schema.Attribute.String &
@@ -681,27 +614,8 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    meta_description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 160;
-      }>;
-    meta_title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'common.seo-block', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1544,7 +1458,6 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::acces-et-situation.acces-et-situation': ApiAccesEtSituationAccesEtSituation;
       'api::category.category': ApiCategoryCategory;
-      'api::google-api-key.google-api-key': ApiGoogleApiKeyGoogleApiKey;
       'api::legal-notice.legal-notice': ApiLegalNoticeLegalNotice;
       'api::page.page': ApiPagePage;
       'api::post.post': ApiPostPost;
