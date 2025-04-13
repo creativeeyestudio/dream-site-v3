@@ -382,7 +382,6 @@ export interface ApiAccesEtSituationAccesEtSituation
     draftAndPublish: false;
   };
   attributes: {
-    access_list: Schema.Attribute.Component<'content.accordion-item', true>;
     adress: Schema.Attribute.String & Schema.Attribute.Required;
     city: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -395,13 +394,16 @@ export interface ApiAccesEtSituationAccesEtSituation
     > &
       Schema.Attribute.Private;
     mail: Schema.Attribute.Email;
-    number: Schema.Attribute.String;
+    map_locale: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-location-picker.location-picker',
+        {
+          info: true;
+        }
+      >;
     phone: Schema.Attribute.String;
     postal_code: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Acc\u00E8s et situation'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
