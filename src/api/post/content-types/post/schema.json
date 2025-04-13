@@ -74,7 +74,9 @@
       "type": "dynamiczone",
       "components": [
         "common.block-video",
-        "common.accordion-list"
+        "common.accordion-list",
+        "post.text",
+        "post.image"
       ]
     },
     "seo": {

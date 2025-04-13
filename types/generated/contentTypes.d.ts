@@ -373,7 +373,7 @@ export interface ApiAccesEtSituationAccesEtSituation
   extends Struct.SingleTypeSchema {
   collectionName: 'acces_et_situations';
   info: {
-    description: '';
+    description: "G\u00E9rer les infos d'acc\u00E8s de l'\u00E9tablissement";
     displayName: 'Acc\u00E8s et situation';
     pluralName: 'acces-et-situations';
     singularName: 'acces-et-situation';
@@ -589,7 +589,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     content: Schema.Attribute.DynamicZone<
-      ['common.block-video', 'common.accordion-list']
+      ['common.block-video', 'common.accordion-list', 'post.text', 'post.image']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

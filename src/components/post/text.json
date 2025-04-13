@@ -1,10 +1,18 @@
 {
   "collectionName": "components_post_texts",
   "info": {
-    "displayName": "Text",
-    "icon": "dashboard"
+    "displayName": "Texte",
+    "icon": "dashboard",
+    "description": ""
   },
   "options": {},
   "attributes": {
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
   }
 }

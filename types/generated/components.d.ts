@@ -230,10 +230,19 @@ export interface PostImage extends Struct.ComponentSchema {
 export interface PostText extends Struct.ComponentSchema {
   collectionName: 'components_post_texts';
   info: {
-    displayName: 'Text';
+    description: '';
+    displayName: 'Texte';
     icon: 'dashboard';
   };
-  attributes: {};
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
 }
 
 declare module '@strapi/strapi' {
