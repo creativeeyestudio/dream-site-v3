@@ -68,7 +68,7 @@ export interface CommonSeoBlock extends Struct.ComponentSchema {
     meta_title: Schema.Attribute.String & Schema.Attribute.Required;
     og_desc: Schema.Attribute.Text;
     og_title: Schema.Attribute.String;
-    social_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    social_image: Schema.Attribute.Media<'images'>;
     twitter_desc: Schema.Attribute.Text;
     twitter_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
