@@ -452,6 +452,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
   collectionName: 'legal_notices';
   info: {
+    description: '';
     displayName: 'Mentions l\u00E9gales';
     pluralName: 'legal-notices';
     singularName: 'legal-notice';
@@ -468,9 +469,41 @@ export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     director_name: Schema.Attribute.String & Schema.Attribute.Required;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
-    host_name: Schema.Attribute.Enumeration<['IONOS', 'OVH', 'Sapinet']>;
+    host_name: Schema.Attribute.Enumeration<
+      [
+        'Sapinet',
+        'OVH',
+        'IONOS',
+        'Infomaniak',
+        'PlanetHoster',
+        'o2Switch',
+        'Kinsta',
+        'SiteGround',
+        'DigitalOcean',
+        'AWS',
+        'Google Cloud Platform',
+        'Microsoft Azure',
+        'Alwaysdata ',
+        'Gandi',
+        'Ikoula',
+      ]
+    >;
     legal_status: Schema.Attribute.Enumeration<
-      ['SAS', 'SASU', 'SARL', 'EURL']
+      [
+        'Entreprise individuelle',
+        'Micro-entreprise',
+        'EURL',
+        'SASU',
+        'SARL',
+        'SAS',
+        'SA',
+        'SNC',
+        'SCS',
+        'SC',
+        'SCA',
+        'SCOP',
+        'SCIC',
+      ]
     > &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
