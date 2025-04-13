@@ -413,7 +413,7 @@ export interface ApiAccesEtSituationAccesEtSituation
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'Cat\u00E9gories';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -491,8 +491,8 @@ export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: '';
-    displayName: 'Page';
+    description: 'Liste des pages du site';
+    displayName: 'Pages';
     pluralName: 'pages';
     singularName: 'page';
   };
@@ -570,8 +570,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
-    description: '';
-    displayName: 'Post';
+    description: 'Articles du site';
+    displayName: 'Articles';
     pluralName: 'posts';
     singularName: 'post';
   };

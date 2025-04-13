@@ -27,7 +27,7 @@ export interface CommonGallery extends Struct.ComponentSchema {
   collectionName: 'components_common_galleries';
   info: {
     description: '';
-    displayName: 'gallery';
+    displayName: "Galerie d'images";
     icon: 'picture';
   };
   attributes: {
@@ -39,7 +39,7 @@ export interface CommonHtmlContent extends Struct.ComponentSchema {
   collectionName: 'components_common_html_contents';
   info: {
     description: '';
-    displayName: 'HTML Content';
+    displayName: 'Contenu HTML';
     icon: 'code';
   };
   attributes: {
@@ -50,7 +50,7 @@ export interface CommonHtmlContent extends Struct.ComponentSchema {
 export interface CommonLinkImageList extends Struct.ComponentSchema {
   collectionName: 'components_common_link_image_lists';
   info: {
-    displayName: 'Link Image List';
+    displayName: 'Liste de liens avec image';
   };
   attributes: {
     link_images: Schema.Attribute.Component<'page.link-image', true>;
@@ -61,7 +61,7 @@ export interface CommonSeoBlock extends Struct.ComponentSchema {
   collectionName: 'components_common_seo_blocks';
   info: {
     description: '';
-    displayName: 'SEO Block';
+    displayName: 'Block SEO';
   };
   attributes: {
     meta_desc: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -92,7 +92,7 @@ export interface ContentLinks extends Struct.ComponentSchema {
   collectionName: 'components_common_links';
   info: {
     description: '';
-    displayName: 'Links';
+    displayName: 'Lien';
   };
   attributes: {
     external_link: Schema.Attribute.String;
@@ -110,7 +110,7 @@ export interface PageCarousel extends Struct.ComponentSchema {
   collectionName: 'components_common_carousels';
   info: {
     description: '';
-    displayName: 'carousel';
+    displayName: 'Carousel';
     icon: 'picture';
   };
   attributes: {
@@ -125,7 +125,7 @@ export interface PageHeroscreen extends Struct.ComponentSchema {
   collectionName: 'components_common_heroscreens';
   info: {
     description: '';
-    displayName: 'heroscreen';
+    displayName: "Bloc d'introduction";
     icon: 'picture';
   };
   attributes: {
@@ -137,7 +137,7 @@ export interface PageLinkImage extends Struct.ComponentSchema {
   collectionName: 'components_page_link_images';
   info: {
     description: '';
-    displayName: 'Link Image';
+    displayName: 'Lien avec Image';
   };
   attributes: {
     external_link: Schema.Attribute.String;
@@ -151,7 +151,7 @@ export interface PageParallax extends Struct.ComponentSchema {
   collectionName: 'components_common_parallaxes';
   info: {
     description: '';
-    displayName: 'parallax';
+    displayName: 'Parallax';
     icon: 'picture';
   };
   attributes: {
@@ -164,7 +164,7 @@ export interface PageText extends Struct.ComponentSchema {
   collectionName: 'components_common_texts';
   info: {
     description: '';
-    displayName: 'Text';
+    displayName: 'Texte standard';
   };
   attributes: {
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
@@ -176,7 +176,7 @@ export interface PageTextDoubleImage extends Struct.ComponentSchema {
   collectionName: 'components_common_text_double_images';
   info: {
     description: '';
-    displayName: 'text-double-image';
+    displayName: 'Texte Double Image';
     icon: 'stack';
   };
   attributes: {
@@ -193,7 +193,7 @@ export interface PageTextImage extends Struct.ComponentSchema {
   collectionName: 'components_common_text_images';
   info: {
     description: '';
-    displayName: 'text-image';
+    displayName: 'Texte Image';
     icon: 'stack';
   };
   attributes: {
@@ -209,7 +209,7 @@ export interface PageTextIntro extends Struct.ComponentSchema {
   collectionName: 'components_common_text_intros';
   info: {
     description: '';
-    displayName: 'Text-Intro';
+    displayName: "texte d'introduction";
   };
   attributes: {
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
