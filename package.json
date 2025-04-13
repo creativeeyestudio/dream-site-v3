@@ -11,21 +11,21 @@
     "deploy": "strapi deploy"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "4.25.15",
-    "@strapi/plugin-i18n": "4.25.15",
-    "@strapi/plugin-users-permissions": "4.25.15",
-    "@strapi/strapi": "4.25.15",
+    "@strapi/plugin-cloud": "5.12.4",
+    "@strapi/plugin-users-permissions": "5.12.4",
+    "@strapi/strapi": "5.12.4",
     "axios": "^1.7.9",
     "back": "file:",
-    "better-sqlite3": "8.6.0",
-    "mysql": "^2.18.1",
+    "better-sqlite3": "11.3.0",
+    "mysql2": "^3.14.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "strapi-plugin-navigation": "^2.5.5",
+    "react-router-dom": "^6.0.0",
+    "strapi-5-sitemap-plugin": "^1.0.5",
+    "strapi-plugin-navigation": "^3.0.11",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-slugify": "^2.3.8",
-    "styled-components": "5.3.3"
+    "styled-components": "^6.0.0"
   },
   "author": {
     "name": "Acuité Digitale"
