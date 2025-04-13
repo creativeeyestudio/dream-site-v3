@@ -373,7 +373,7 @@ export interface ApiAccesEtSituationAccesEtSituation
   extends Struct.SingleTypeSchema {
   collectionName: 'acces_et_situations';
   info: {
-    description: '';
+    description: "G\u00E9rer les infos d'acc\u00E8s de l'\u00E9tablissement";
     displayName: 'Acc\u00E8s et situation';
     pluralName: 'acces-et-situations';
     singularName: 'acces-et-situation';
@@ -413,7 +413,7 @@ export interface ApiAccesEtSituationAccesEtSituation
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'Cat\u00E9gories';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -452,6 +452,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
   collectionName: 'legal_notices';
   info: {
+    description: '';
     displayName: 'Mentions l\u00E9gales';
     pluralName: 'legal-notices';
     singularName: 'legal-notice';
@@ -468,9 +469,41 @@ export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     director_name: Schema.Attribute.String & Schema.Attribute.Required;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
-    host_name: Schema.Attribute.Enumeration<['IONOS', 'OVH', 'Sapinet']>;
+    host_name: Schema.Attribute.Enumeration<
+      [
+        'Sapinet',
+        'OVH',
+        'IONOS',
+        'Infomaniak',
+        'PlanetHoster',
+        'o2Switch',
+        'Kinsta',
+        'SiteGround',
+        'DigitalOcean',
+        'AWS',
+        'Google Cloud Platform',
+        'Microsoft Azure',
+        'Alwaysdata ',
+        'Gandi',
+        'Ikoula',
+      ]
+    >;
     legal_status: Schema.Attribute.Enumeration<
-      ['SAS', 'SASU', 'SARL', 'EURL']
+      [
+        'Entreprise individuelle',
+        'Micro-entreprise',
+        'EURL',
+        'SASU',
+        'SARL',
+        'SAS',
+        'SA',
+        'SNC',
+        'SCS',
+        'SC',
+        'SCA',
+        'SCOP',
+        'SCIC',
+      ]
     > &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -491,8 +524,8 @@ export interface ApiLegalNoticeLegalNotice extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    description: '';
-    displayName: 'Page';
+    description: 'Liste des pages du site';
+    displayName: 'Pages';
     pluralName: 'pages';
     singularName: 'page';
   };
@@ -570,8 +603,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
-    description: '';
-    displayName: 'Post';
+    description: 'Articles du site';
+    displayName: 'Articles';
     pluralName: 'posts';
     singularName: 'post';
   };
@@ -589,7 +622,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     content: Schema.Attribute.DynamicZone<
-      ['common.block-video', 'common.accordion-list']
+      ['common.block-video', 'common.accordion-list', 'post.text', 'post.image']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

@@ -4,8 +4,8 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "Post",
-    "description": ""
+    "displayName": "Articles",
+    "description": "Articles du site"
   },
   "options": {
     "draftAndPublish": true
@@ -74,7 +74,9 @@
       "type": "dynamiczone",
       "components": [
         "common.block-video",
-        "common.accordion-list"
+        "common.accordion-list",
+        "post.text",
+        "post.image"
       ]
     },
     "seo": {

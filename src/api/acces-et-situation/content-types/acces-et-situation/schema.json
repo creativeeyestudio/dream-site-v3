@@ -5,7 +5,7 @@
     "singularName": "acces-et-situation",
     "pluralName": "acces-et-situations",
     "displayName": "Accès et situation",
-    "description": ""
+    "description": "Gérer les infos d'accès de l'établissement"
   },
   "options": {
     "draftAndPublish": false

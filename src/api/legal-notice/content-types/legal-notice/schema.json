@@ -4,7 +4,8 @@
   "info": {
     "singularName": "legal-notice",
     "pluralName": "legal-notices",
-    "displayName": "Mentions légales"
+    "displayName": "Mentions légales",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,10 +19,19 @@
     "legal_status": {
       "type": "enumeration",
       "enum": [
-        "SAS",
+        "Entreprise individuelle",
+        "Micro-entreprise",
+        "EURL",
         "SASU",
         "SARL",
-        "EURL"
+        "SAS",
+        "SA",
+        "SNC",
+        "SCS",
+        "SC",
+        "SCA",
+        "SCOP",
+        "SCIC"
       ],
       "required": true
     },
@@ -47,9 +57,21 @@
     "host_name": {
       "type": "enumeration",
       "enum": [
-        "IONOS",
+        "Sapinet",
         "OVH",
-        "Sapinet"
+        "IONOS",
+        "Infomaniak",
+        "PlanetHoster",
+        "o2Switch",
+        "Kinsta",
+        "SiteGround",
+        "DigitalOcean",
+        "AWS",
+        "Google Cloud Platform",
+        "Microsoft Azure",
+        "Alwaysdata ",
+        "Gandi",
+        "Ikoula"
       ]
     },
     "cnil_number": {
