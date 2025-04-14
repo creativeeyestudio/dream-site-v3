@@ -43,8 +43,7 @@
         "page.text",
         "page.text-intro",
         "common.block-video",
-        "common.accordion-list",
-        "common.link-image-list"
+        "common.accordion-list"
       ],
       "required": true
     },

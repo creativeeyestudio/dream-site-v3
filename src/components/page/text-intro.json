@@ -6,13 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "content": {
-      "type": "blocks",
-      "required": true
+      "type": "component",
+      "repeatable": false,
+      "component": "page.text"
     }
   }
 }

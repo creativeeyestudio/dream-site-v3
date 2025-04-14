@@ -7,11 +7,10 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "text": {
-      "type": "blocks"
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.text"
     },
     "image": {
       "type": "media",
@@ -20,16 +19,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.links"
-    },
-    "accordions": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.accordion-item"
     }
   }
 }

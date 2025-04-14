@@ -10,9 +10,14 @@
       "type": "string",
       "required": true
     },
-    "content": {
+    "text": {
       "type": "blocks",
       "required": true
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.links"
     }
   }
 }

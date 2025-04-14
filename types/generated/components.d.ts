@@ -47,16 +47,6 @@ export interface CommonHtmlContent extends Struct.ComponentSchema {
   };
 }
 
-export interface CommonLinkImageList extends Struct.ComponentSchema {
-  collectionName: 'components_common_link_image_lists';
-  info: {
-    displayName: 'Liste de liens avec image';
-  };
-  attributes: {
-    link_images: Schema.Attribute.Component<'page.link-image', true>;
-  };
-}
-
 export interface CommonSeoBlock extends Struct.ComponentSchema {
   collectionName: 'components_common_seo_blocks';
   info: {
@@ -114,7 +104,7 @@ export interface PageCarousel extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    Images: Schema.Attribute.Media<
+    images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
@@ -130,20 +120,6 @@ export interface PageHeroscreen extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
-  };
-}
-
-export interface PageLinkImage extends Struct.ComponentSchema {
-  collectionName: 'components_page_link_images';
-  info: {
-    description: '';
-    displayName: 'Lien avec Image';
-  };
-  attributes: {
-    external_link: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -167,7 +143,8 @@ export interface PageText extends Struct.ComponentSchema {
     displayName: 'Texte standard';
   };
   attributes: {
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    links: Schema.Attribute.Component<'content.links', true>;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -180,12 +157,9 @@ export interface PageTextDoubleImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
+    content: Schema.Attribute.Component<'page.text', true>;
     image1: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     image2: Schema.Attribute.Media<'images'>;
-    links: Schema.Attribute.Component<'content.links', true>;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -197,11 +171,8 @@ export interface PageTextImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
+    content: Schema.Attribute.Component<'page.text', true>;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    links: Schema.Attribute.Component<'content.links', true>;
-    text: Schema.Attribute.Blocks;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -212,8 +183,7 @@ export interface PageTextIntro extends Struct.ComponentSchema {
     displayName: "texte d'introduction";
   };
   attributes: {
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.Component<'page.text', false>;
   };
 }
 
@@ -252,13 +222,11 @@ declare module '@strapi/strapi' {
       'common.block-video': CommonBlockVideo;
       'common.gallery': CommonGallery;
       'common.html-content': CommonHtmlContent;
-      'common.link-image-list': CommonLinkImageList;
       'common.seo-block': CommonSeoBlock;
       'content.accordion-item': ContentAccordionItem;
       'content.links': ContentLinks;
       'page.carousel': PageCarousel;
       'page.heroscreen': PageHeroscreen;
-      'page.link-image': PageLinkImage;
       'page.parallax': PageParallax;
       'page.text': PageText;
       'page.text-double-image': PageTextDoubleImage;

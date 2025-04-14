@@ -551,7 +551,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page.text-intro',
         'common.block-video',
         'common.accordion-list',
-        'common.link-image-list',
       ]
     > &
       Schema.Attribute.Required &
