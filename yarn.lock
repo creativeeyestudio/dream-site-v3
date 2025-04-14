@@ -5881,11 +5881,12 @@ babel-plugin-macros@^3.1.0:
 "back@file:.":
   version "0.1.0"
   dependencies:
+    "@_sh/strapi-plugin-ckeditor" "^5.0.2"
     "@strapi/plugin-cloud" "5.12.4"
     "@strapi/plugin-users-permissions" "5.12.4"
     "@strapi/strapi" "5.12.4"
     axios "^1.7.9"
-    back "file:C:/Users/tomas/AppData/Local/Yarn/Cache/v6/npm-back-0.1.0-da006eed-9242-4bd6-ae20-8ebbc4fee4ee-1744575265643/node_modules/back"
+    back "file:C:/Users/tomas/AppData/Local/Yarn/Cache/v6/npm-back-0.1.0-729ab6ec-0911-4884-8376-7fe98bfc4e65-1744668349048/node_modules/back"
     better-sqlite3 "11.3.0"
     mysql2 "^3.14.0"
     react "^18.0.0"
@@ -13502,6 +13503,11 @@ strapi-plugin-slugify@^2.3.8:
     "@strapi/utils" "^4.14.0"
     lodash "^4.17.21"
     yup "^0.32.9"
+
+strapi-v5-plugin-populate-deep@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/strapi-v5-plugin-populate-deep/-/strapi-v5-plugin-populate-deep-4.0.5.tgz#3c909a9dfdcbc81fe4d7a747b1f8e5e5279b3c54"
+  integrity sha512-se5WE8rWxVx+BX904tESoZsRJYJg7VtGWZNeNGhirJGhuUJV5UgAP38Jiq5kPdyT3rASiwfCJxvXgMAfTh3Y5A==
 
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"

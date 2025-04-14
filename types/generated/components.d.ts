@@ -144,7 +144,13 @@ export interface PageText extends Struct.ComponentSchema {
   };
   attributes: {
     links: Schema.Attribute.Component<'content.links', true>;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
