@@ -30,6 +30,12 @@ module.exports = createCoreController('api::page.page', ({ strapi }) => ({
             'page.text-double-image': {
               populate: ['image1', 'image2'],
             },
+            'page.carousel': {
+              populate: ['images'],
+            },
+            'page.parallax': {
+              populate: ['image'],
+            },
           },
         },
       },
