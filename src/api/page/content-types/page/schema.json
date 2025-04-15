@@ -42,8 +42,7 @@
         "common.html-content",
         "page.text",
         "page.text-intro",
-        "common.block-video",
-        "common.accordion-list"
+        "common.block-video"
       ],
       "required": true
     },
@@ -73,11 +72,6 @@
         }
       },
       "type": "boolean"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "common.seo-block"
     }
   }
 }

@@ -1,16 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface CommonAccordionList extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordion_lists';
-  info: {
-    displayName: 'Accordion List';
-    icon: 'bulletList';
-  };
-  attributes: {
-    accordions: Schema.Attribute.Component<'content.accordion-item', true>;
-  };
-}
-
 export interface CommonBlockVideo extends Struct.ComponentSchema {
   collectionName: 'components_common_block_videos';
   info: {
@@ -43,7 +32,7 @@ export interface CommonHtmlContent extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    code_html: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
   };
 }
 
@@ -64,17 +53,6 @@ export interface CommonSeoBlock extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     twitter_title: Schema.Attribute.String;
-  };
-}
-
-export interface ContentAccordionItem extends Struct.ComponentSchema {
-  collectionName: 'components_content_accordion_items';
-  info: {
-    displayName: 'Accordion Item';
-    icon: 'bulletList';
-  };
-  attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -163,9 +141,17 @@ export interface PageTextDoubleImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    content: Schema.Attribute.Component<'page.text', true>;
     image1: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     image2: Schema.Attribute.Media<'images'>;
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -177,8 +163,15 @@ export interface PageTextImage extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    content: Schema.Attribute.Component<'page.text', true>;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -189,7 +182,15 @@ export interface PageTextIntro extends Struct.ComponentSchema {
     displayName: "texte d'introduction";
   };
   attributes: {
-    content: Schema.Attribute.Component<'page.text', false>;
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -224,12 +225,10 @@ export interface PostText extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'common.accordion-list': CommonAccordionList;
       'common.block-video': CommonBlockVideo;
       'common.gallery': CommonGallery;
       'common.html-content': CommonHtmlContent;
       'common.seo-block': CommonSeoBlock;
-      'content.accordion-item': ContentAccordionItem;
       'content.links': ContentLinks;
       'page.carousel': PageCarousel;
       'page.heroscreen': PageHeroscreen;

@@ -7,11 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "content": {
-      "type": "component",
-      "repeatable": true,
-      "component": "page.text"
-    },
     "image1": {
       "type": "media",
       "multiple": false,
@@ -27,6 +22,18 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

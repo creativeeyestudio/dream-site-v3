@@ -6,10 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "content": {
-      "type": "component",
-      "repeatable": false,
-      "component": "page.text"
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

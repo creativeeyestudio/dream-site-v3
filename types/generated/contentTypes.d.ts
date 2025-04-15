@@ -550,7 +550,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page.text',
         'page.text-intro',
         'common.block-video',
-        'common.accordion-list',
       ]
     > &
       Schema.Attribute.Required &
@@ -578,7 +577,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    seo: Schema.Attribute.Component<'common.seo-block', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -621,7 +619,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     content: Schema.Attribute.DynamicZone<
-      ['common.block-video', 'common.accordion-list', 'post.text', 'post.image']
+      ['common.block-video', 'post.text', 'post.image']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

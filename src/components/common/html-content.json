@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "code_html": {
+    "content": {
       "type": "blocks",
       "required": true
     }
