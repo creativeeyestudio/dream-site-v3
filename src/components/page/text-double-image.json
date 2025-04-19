@@ -34,6 +34,11 @@
       },
       "required": true,
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.links"
     }
   }
 }

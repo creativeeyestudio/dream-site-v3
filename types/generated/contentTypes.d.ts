@@ -577,6 +577,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    seo: Schema.Attribute.Component<'common.seo-block', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

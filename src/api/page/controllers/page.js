@@ -22,6 +22,7 @@ module.exports = createCoreController('api::page.page', ({ strapi }) => ({
     // Re-fetch avec les images et composants, et on renvoie directement les données sans `data`
     const detailedEntity = await strapi.entityService.findOne('api::page.page', entity.id, {
       populate: {
+        seo: {},
         content_page: {
           on: {
             'page.text-image': {
@@ -42,6 +43,7 @@ module.exports = createCoreController('api::page.page', ({ strapi }) => ({
     });
 
     // Renvoie directement l'objet de données sans le `data` wrapper
+    // @ts-ignore
     return this.transformResponse(detailedEntity).data;
   },
 }));

@@ -72,6 +72,11 @@
         }
       },
       "type": "boolean"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.seo-block"
     }
   }
 }
