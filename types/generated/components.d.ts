@@ -143,6 +143,7 @@ export interface PageTextDoubleImage extends Struct.ComponentSchema {
   attributes: {
     image1: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     image2: Schema.Attribute.Media<'images'>;
+    links: Schema.Attribute.Component<'content.links', true>;
     text: Schema.Attribute.RichText &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<
@@ -164,6 +165,7 @@ export interface PageTextImage extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    links: Schema.Attribute.Component<'content.links', true>;
     text: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -182,6 +184,7 @@ export interface PageTextIntro extends Struct.ComponentSchema {
     displayName: "texte d'introduction";
   };
   attributes: {
+    links: Schema.Attribute.Component<'content.links', true>;
     text: Schema.Attribute.RichText &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<
