@@ -1,4 +1,4 @@
-name: 'Dreamsite'
+name: 'dreamsite-cms'
 
 services:
   db:
