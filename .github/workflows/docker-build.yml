@@ -2,8 +2,9 @@ name: Image Docker Dev
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"       # Déclenche sur tous les tags commençant par "v"
+      - "v*-beta"  # Déclenche sur tous les tags contenant "beta"
   workflow_dispatch: # Permet le déclenchement manuel depuis l'interface GitHub
 
 jobs:
