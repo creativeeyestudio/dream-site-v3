@@ -13,16 +13,16 @@ jobs:
     steps:
       # Étape 1 : Checkout du code
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.2.2
 
       # Étape 2 : Configuration de Docker
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3.10.0
 
       # Étape 3 : Construction de l'image Docker
       - name: Build Docker image
         run: |
-          docker build -t dreamsite-admin:develop .
+          docker build -t dreamsite-cms:develop .
 
       # Étape 4 : (Optionnel) Push de l'image vers un registre Docker
       - name: Log in to DockerHub
@@ -33,5 +33,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag dreamsite-admin:develop kevinad/dreamsite-admin:develop
-          docker push kevinad/dreamsite-admin:develop
+          docker tag dreamsite-cms:develop kevinad/dreamsite-cms:develop
+          docker push kevinad/dreamsite-cms:develop
