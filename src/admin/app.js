@@ -1,3 +1,32 @@
+const lightTheme = {
+  colors: {
+    primary100: '#A8DADC',
+    primary200: '#74A9CF',
+    primary500: '#1D3557',
+    accent500: '#FF8C42',
+    neutral0: '#F1FAEE',
+    neutral100: '#E5E5E5',
+    neutral500: '#B0B0B0',
+    neutral900: '#333333',
+    danger700: '#B72B1A',
+  },
+};
+
+const darkTheme = {
+  colors: {
+    primary100: '#457B9D',
+    primary200: '#1D3557',
+    primary500: '#A8DADC',
+    accent500: '#FFB26B',
+    neutral0: '#1A1A1A',
+    neutral100: '#2A2A2A',
+    neutral500: '#555555',
+    neutral900: '#F1FAEE',
+    danger700: '#E76F51',
+  },
+};
+
+
 const config = {
   locales: [
     // 'ar',
@@ -28,25 +57,9 @@ const config = {
     // 'zh',
   ],
   theme: {
-    colors: {
-      primary100: '#A8DADC',  // Bleu clair
-      primary200: '#74A9CF',  // Variation du bleu clair
-      primary500: '#1D3557',  // Bleu marine (fiabilité et confiance)
-      accent500: '#FF8C42',   // Orange chaud (boutons, CTA)
-      neutral0: '#F1FAEE',    // Fond gris clair
-      neutral100: '#E5E5E5',  // Fond secondaire légèrement plus foncé
-      neutral500: '#B0B0B0',  // Éléments désactivés
-      neutral900: '#333333',  // Texte principal (gris foncé)
-      danger700: "#B72B1A",
-    },
+    light: lightTheme,
+    dark: darkTheme,
   },
 };
 
-const bootstrap = (app) => {
-  console.log(app);
-};
-
-export default {
-  config,
-  bootstrap,
-};
+export default config;
