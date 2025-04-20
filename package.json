@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.2",
-    "@strapi/plugin-cloud": "5.12.4",
+    "@strapi/plugin-cloud": "5.12.5",
     "@strapi/plugin-graphql": "^5.12.4",
-    "@strapi/plugin-users-permissions": "5.12.4",
-    "@strapi/strapi": "5.12.4",
+    "@strapi/plugin-users-permissions": "5.12.5",
+    "@strapi/strapi": "5.12.5",
     "axios": "^1.7.9",
     "back": "file:",
     "better-sqlite3": "11.3.0",
