@@ -28,7 +28,6 @@ const config = {
     // 'zh',
   ],
   theme: {
-    light: true,
     colors: {
       primary100: '#A8DADC',  // Bleu clair
       primary200: '#74A9CF',  // Variation du bleu clair
@@ -38,13 +37,13 @@ const config = {
       neutral100: '#E5E5E5',  // Fond secondaire légèrement plus foncé
       neutral500: '#B0B0B0',  // Éléments désactivés
       neutral900: '#333333',  // Texte principal (gris foncé)
-      danger700: "#b72b1a",
+      danger700: "#B72B1A",
     },
   },
 };
 
 const bootstrap = (app) => {
-  // console.log(app);
+  console.log(app);
 };
 
 export default {
