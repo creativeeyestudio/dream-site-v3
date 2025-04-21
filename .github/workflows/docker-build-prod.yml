@@ -23,7 +23,7 @@ jobs:
       # Étape 3 : Construction de l'image Docker
       - name: Build Docker image
         run: |
-          docker build -t dreamsite-cms:${{ github.ref_name }} .
+          docker build -f Dockerfile.prod -t dreamsite-cms:${{ github.ref_name }} .
 
       # Étape 4 : (Optionnel) Push de l'image vers un registre Docker
       - name: Log in to DockerHub
