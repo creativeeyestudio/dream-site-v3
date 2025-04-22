@@ -29,7 +29,6 @@ module.exports = createCoreController('api::page.page', ({ strapi }) => ({
       return ctx.notFound('Page not found');
     }
 
-    // Re-fetch avec les images et composants, et on renvoie directement les données sans `data`
     const detailedEntity = await strapi.entityService.findOne('api::page.page', entity.id, {
       populate: {
         seo: {},
