@@ -15,7 +15,15 @@ module.exports = {
       path: '/pages/slug/:slug',
       handler: 'page.findBySlug',
       config: {
-        auth: false, // ou true selon si tu veux que ce soit public
+        auth: false,
+      },
+    },
+    {
+      method: 'GET',
+      path: '/pages/home',
+      handler: 'page.findByHomepage',
+      config: {
+        auth: false,
       },
     },
     {
@@ -23,7 +31,7 @@ module.exports = {
       path: '/pages',
       handler: 'page.find',
       config: {
-        auth: false, // ou true selon si tu veux que ce soit public
+        auth: false,
       },
     }
   ]
