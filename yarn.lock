@@ -4170,6 +4170,37 @@
     lodash "4.17.21"
     react-remove-scroll "2.5.10"
 
+"@strapi/design-system@^2.0.0-rc.18":
+  version "2.0.0-rc.23"
+  resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-2.0.0-rc.23.tgz#72dab0a3a9966b6ffd7ba53d7eed8190489e896b"
+  integrity sha512-PXWVlNqA4GDPxx8B2r7LFuQtWgGgjnPXnCOZhynpqqEVVcFkrYmRCPALFhHPD4J3hpEadlUinvlcisMymVviUw==
+  dependencies:
+    "@codemirror/lang-json" "6.0.1"
+    "@floating-ui/react-dom" "2.1.0"
+    "@internationalized/date" "3.5.4"
+    "@internationalized/number" "3.5.3"
+    "@radix-ui/react-accordion" "1.1.2"
+    "@radix-ui/react-alert-dialog" "1.0.5"
+    "@radix-ui/react-avatar" "1.0.4"
+    "@radix-ui/react-checkbox" "1.0.4"
+    "@radix-ui/react-dialog" "1.0.5"
+    "@radix-ui/react-dismissable-layer" "1.0.5"
+    "@radix-ui/react-dropdown-menu" "2.0.6"
+    "@radix-ui/react-focus-guards" "1.0.1"
+    "@radix-ui/react-focus-scope" "1.0.4"
+    "@radix-ui/react-popover" "1.0.7"
+    "@radix-ui/react-progress" "1.0.3"
+    "@radix-ui/react-radio-group" "1.1.3"
+    "@radix-ui/react-scroll-area" "1.0.5"
+    "@radix-ui/react-switch" "1.0.3"
+    "@radix-ui/react-tabs" "1.0.4"
+    "@radix-ui/react-tooltip" "1.0.7"
+    "@radix-ui/react-use-callback-ref" "1.0.1"
+    "@strapi/ui-primitives" "2.0.0-rc.23"
+    "@uiw/react-codemirror" "4.22.2"
+    lodash "4.17.21"
+    react-remove-scroll "2.5.10"
+
 "@strapi/email@5.12.5":
   version "5.12.5"
   resolved "https://registry.yarnpkg.com/@strapi/email/-/email-5.12.5.tgz#d3036072846c4ad4bdbfe68ddf2495bfe02d54da"
@@ -4277,6 +4308,11 @@
   version "2.0.0-rc.21"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-2.0.0-rc.21.tgz#7f8ff7733693884fd132ebf20231215b26aa281f"
   integrity sha512-NotA9mUcuxbXjoOLVRhMFxEOHgVgahRyvWoXGhhJ3W/nT8H/pVrfjfIhx/K4LApJzI3d97T+ErKP0wyKYntksg==
+
+"@strapi/icons@^2.0.0-rc.18":
+  version "2.0.0-rc.23"
+  resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-2.0.0-rc.23.tgz#854bd41727c58bb6a6e9a8099164a7bf52bd32d7"
+  integrity sha512-sJ7iQ8kZ28z3mTkDm/gnsWIQljK3w0UaOk2irO77iSmbh+uR3W9gDF5CP/4Z+KDUqnjDke2kaOIPRI67etvi9A==
 
 "@strapi/logger@4.25.20":
   version "4.25.20"
@@ -4773,6 +4809,32 @@
   version "2.0.0-rc.21"
   resolved "https://registry.yarnpkg.com/@strapi/ui-primitives/-/ui-primitives-2.0.0-rc.21.tgz#61550574899c0451d1dab5d693e17629b124cb96"
   integrity sha512-kEj+6ouCBXQtWuOQ/VXqHLp9cCfTt+F/OE5s7F9iycbrByPxCzTyGJ/ad0u/FY+R4rQuHjmuUa7IYu1xwfCKcQ==
+  dependencies:
+    "@radix-ui/number" "1.0.1"
+    "@radix-ui/primitive" "1.0.1"
+    "@radix-ui/react-collection" "1.0.3"
+    "@radix-ui/react-compose-refs" "1.0.1"
+    "@radix-ui/react-context" "1.0.1"
+    "@radix-ui/react-direction" "1.0.1"
+    "@radix-ui/react-dismissable-layer" "1.0.5"
+    "@radix-ui/react-focus-guards" "1.0.1"
+    "@radix-ui/react-focus-scope" "1.0.4"
+    "@radix-ui/react-id" "1.0.1"
+    "@radix-ui/react-popper" "1.1.3"
+    "@radix-ui/react-portal" "1.0.4"
+    "@radix-ui/react-primitive" "1.0.3"
+    "@radix-ui/react-slot" "1.0.2"
+    "@radix-ui/react-use-controllable-state" "1.0.1"
+    "@radix-ui/react-use-layout-effect" "1.0.1"
+    "@radix-ui/react-use-previous" "1.0.1"
+    "@radix-ui/react-visually-hidden" "1.0.3"
+    aria-hidden "1.2.4"
+    react-remove-scroll "2.5.10"
+
+"@strapi/ui-primitives@2.0.0-rc.23":
+  version "2.0.0-rc.23"
+  resolved "https://registry.yarnpkg.com/@strapi/ui-primitives/-/ui-primitives-2.0.0-rc.23.tgz#76b964909a0cbdcd5b3c6be1fb52a8e634b5130e"
+  integrity sha512-YMH9z0k/aX8HYrq+sDCc5v2cPPqRBwgzQ/NxkzV1pvqvonKFgH3V3sQTXM3tStVkz4z4RuxB/lXoEZXGe/aVdg==
   dependencies:
     "@radix-ui/number" "1.0.1"
     "@radix-ui/primitive" "1.0.1"
@@ -6226,7 +6288,7 @@ babel-plugin-macros@^3.1.0:
     "@strapi/plugin-users-permissions" "5.12.5"
     "@strapi/strapi" "5.12.5"
     axios "^1.7.9"
-    back "file:C:/Users/tomas/AppData/Local/Yarn/Cache/v6/npm-back-0.1.0-85a3942f-284d-454f-80d8-9b2ca6ccb10d-1745178819468/node_modules/back"
+    back "file:C:/Users/tomas/AppData/Local/Yarn/Cache/v6/npm-back-0.1.0-de4297b8-32b5-4af5-be9a-138c3b631627-1745873202676/node_modules/back"
     better-sqlite3 "11.3.0"
     mysql2 "^3.14.0"
     react "^18.0.0"
@@ -12732,6 +12794,20 @@ react-intl@^7.1.0, react-intl@^7.1.5:
     intl-messageformat "10.7.16"
     tslib "^2.8.0"
 
+react-intl@^7.1.6:
+  version "7.1.11"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-7.1.11.tgz#6155602c46621ad9b67dd31750d00908e1e0b516"
+  integrity sha512-tnVoRCWvW5Ie2ikYSdPF7z3+880yCe/9xPmitFeRPw3RYDcCfR4m8ZYa4MBq19W4adt9Z+PQA4FaMBCJ7E+HCQ==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.4"
+    "@formatjs/icu-messageformat-parser" "2.11.2"
+    "@formatjs/intl" "3.1.6"
+    "@types/hoist-non-react-statics" "^3.3.1"
+    "@types/react" "16 || 17 || 18 || 19"
+    hoist-non-react-statics "^3.3.2"
+    intl-messageformat "10.7.16"
+    tslib "^2.8.0"
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -14074,6 +14150,15 @@ strapi-location-picker@^0.0.1:
     ngeohash "^0.6.3"
     react-intl "^7.1.5"
     react-leaflet "^4.2.1"
+
+strapi-plugin-matomo@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-matomo/-/strapi-plugin-matomo-1.0.1.tgz#a42125ced80688a9e063544253c5b899dd1bfcd7"
+  integrity sha512-4PI6TOqJumDOIxy2XdrVUBNrVSNZy6+o/IIMXeILkUAZBmU9LqLctSsWkZFxUlv65hbsjr2caKyQpBZm5RNfpg==
+  dependencies:
+    "@strapi/design-system" "^2.0.0-rc.18"
+    "@strapi/icons" "^2.0.0-rc.18"
+    react-intl "^7.1.6"
 
 strapi-plugin-navigation@^3.0.11:
   version "3.0.11"
