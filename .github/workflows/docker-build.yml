@@ -35,4 +35,7 @@ jobs:
       - name: Push Docker image
         run: |
           docker tag dreamsite-cms:${{ github.ref_name }} kevinad/dreamsite-cms:${{ github.ref_name }}
+          docker tag dreamsite-cms:${{ github.ref_name }} kevinad/dreamsite-cms:latest
+
           docker push kevinad/dreamsite-cms:${{ github.ref_name }}
+          docker push kevinad/dreamsite-cms:latest
