@@ -8,6 +8,7 @@ module.exports = [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
+          "frame-src": ["https://*"],
           "script-src": [
             "'self'",
             "unsafe-inline",

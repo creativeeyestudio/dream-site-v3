@@ -25,6 +25,7 @@
     "react-router-dom": "^6.0.0",
     "strapi-5-sitemap-plugin": "^1.0.5",
     "strapi-location-picker": "^0.0.1",
+    "strapi-plugin-matomo": "^1.0.1",
     "strapi-plugin-navigation": "^3.0.11",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-slugify": "^2.3.8",
