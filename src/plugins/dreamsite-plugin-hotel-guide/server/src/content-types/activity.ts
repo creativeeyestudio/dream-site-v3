@@ -35,6 +35,18 @@ const schema = {
             type: "string",
             required: false
         },
+        price: {
+            type: "string",
+            required: true
+        },
+        recommended: {
+            type: 'boolean',
+            required: false,
+        },
+        is_external: {
+            type: 'boolean',
+            required: false,
+        }
     }
 }
 

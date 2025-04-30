@@ -786,13 +786,16 @@ export interface PluginDreamsitePluginHotelGuideActivity
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'>;
+    is_external: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::dreamsite-plugin-hotel-guide.activity'
     > &
       Schema.Attribute.Private;
+    price: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    recommended: Schema.Attribute.Boolean;
     schedule: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
