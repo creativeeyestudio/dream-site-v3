@@ -9,8 +9,8 @@ module.exports = ({ env }) => ({
             widgetURL: env('MATOMO_WIDGET_URL'),
         }
     },
-    'dreamsite-plugin-hotel-guide': {
-        enabled: true,
-        resolve: './src/plugins/dreamsite-plugin-hotel-guide',
-    }
+    // 'dreamsite-plugin-hotel-guide': {
+    //     enabled: true,
+    //     resolve: './src/plugins/dreamsite-plugin-hotel-guide',
+    // }
 });

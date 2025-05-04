@@ -761,90 +761,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface PluginDreamsitePluginHotelGuideActivity
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'activities';
-  info: {
-    displayName: 'Activit\u00E9s';
-    pluralName: 'activities';
-    singularName: 'activity';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: true;
-    };
-    'content-type-builder': {
-      visible: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    image: Schema.Attribute.Media<'images'>;
-    is_external: Schema.Attribute.Boolean;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::dreamsite-plugin-hotel-guide.activity'
-    > &
-      Schema.Attribute.Private;
-    price: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    recommended: Schema.Attribute.Boolean;
-    schedule: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface PluginDreamsitePluginHotelGuideService
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'services';
-  info: {
-    displayName: 'Services';
-    pluralName: 'services';
-    singularName: 'service';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: true;
-    };
-    'content-type-builder': {
-      visible: true;
-    };
-  };
-  attributes: {
-    contact: Schema.Attribute.Email;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::dreamsite-plugin-hotel-guide.service'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    schedule: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Struct.CollectionTypeSchema {
   collectionName: 'i18n_locale';
   info: {
@@ -1580,8 +1496,6 @@ declare module '@strapi/strapi' {
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'plugin::dreamsite-plugin-hotel-guide.activity': PluginDreamsitePluginHotelGuideActivity;
-      'plugin::dreamsite-plugin-hotel-guide.service': PluginDreamsitePluginHotelGuideService;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::navigation.audience': PluginNavigationAudience;
       'plugin::navigation.navigation': PluginNavigationNavigation;
