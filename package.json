@@ -46,6 +46,5 @@
   "devDependencies": {
     "@swc/cli": "^0.1.51",
     "@swc/core": "^1.2.163"
-  },
-  "packageManager": "yarn@4.9.1"
+  }
 }
