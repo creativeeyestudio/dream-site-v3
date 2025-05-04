@@ -1,6 +1,26 @@
-name: 'dreamsite-cms'
+name: 'dreamsite'
 
 services:
+  cms:
+    build: .
+    environment:
+      DATABASE_CLIENT: mysql
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_HOST: db
+      DATABASE_PORT: 3306
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      NODE_ENV: development
+    ports:
+      - '1337:1337'
+    volumes:
+      - .:/opt/app
+      - /opt/app/node_modules  # Empêche les conflits avec node_modules local
+    depends_on:
+      - db
+    networks:
+      - ds_net
+
   db:
     image: mysql:8.0
     restart: always
@@ -10,9 +30,11 @@ services:
       MYSQL_USER: ${DATABASE_USERNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
-      - db_data:/var/lib/mysql  # Stockage persistant pour MySQL
+      - db_data:/var/lib/mysql
     ports:
       - '3306:3306'
+    networks:
+      - ds_net
 
 networks:
   ds_net:
