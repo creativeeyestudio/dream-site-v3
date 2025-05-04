@@ -32,4 +32,4 @@ USER node
 EXPOSE 1337
 
 # Commande de démarrage
-CMD ["yarn", "develop"]
+CMD ["yarn", "develop", "--watch-admin"]
