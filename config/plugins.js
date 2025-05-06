@@ -9,8 +9,8 @@ module.exports = ({ env }) => ({
             widgetURL: env('MATOMO_WIDGET_URL'),
         }
     },
-    "sejour-plus": {
+    'sejour-plus': {
         enabled: true,
-        resolve: './src/plugins/sejour-plus',
-    }
+        resolve: './src/plugins/sejour-plus'
+    },
 });
