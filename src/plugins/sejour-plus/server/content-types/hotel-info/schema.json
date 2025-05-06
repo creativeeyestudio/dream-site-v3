@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "hotel_infos",
+  "info": {
+    "singularName": "hotel-info",
+    "pluralName": "hotel-infos",
+    "displayName": "Infos de l&#x27;hôtel"
+  },
+  "options": {
+    "comment": ""
+  },
+  "attributes": {
+    "hotel_name": {
+      "type": "string"
+    },
+    "hotel_stars": {
+      "type": "integer"
+    },
+    "hotel_phone": {
+      "type": "string"
+    },
+    "hotel_email": {
+      "type": "email"
+    },
+    "hotel_maps": {
+      "type": "json"
+    },
+    "hotel_website": {
+      "type": "string"
+    },
+    "hotel_checkin": {
+      "type": "time"
+    },
+    "hotel_checkout": {
+      "type": "time"
+    },
+    "hotel_wifi_name": {
+      "type": "string"
+    },
+    "hotel_wifi_pass": {
+      "type": "string"
+    },
+    "hotel_parking_access": {
+      "type": "string"
+    }
+  }
+}
