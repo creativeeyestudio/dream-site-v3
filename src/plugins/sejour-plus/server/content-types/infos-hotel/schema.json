@@ -13,43 +13,56 @@
     "hotel_image": {
       "type": "media",
       "allowedTypes": ["images"],
-      "multiple": false
+      "multiple": false,
+      "required": false
     },
     "hotel_name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "hotel_stars": {
-      "type": "integer"
+      "type": "integer",
+      "required": false
     },
     "hotel_phone": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "hotel_email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "hotel_lon": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "hotel_lat": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "hotel_website": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "hotel_check_in": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "hotel_check_out": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "hotel_wifi": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "hotel_wifi_pass": {
-      "type": "password"
+      "type": "password",
+      "required": false
     },
     "hotel_parking": {
-      "type": "string"
+      "type": "string",
+      "required": false
     }
   }
 }

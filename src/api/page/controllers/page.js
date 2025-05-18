@@ -26,7 +26,6 @@ module.exports = createCoreController(api, ({ strapi }) => ({
       populate: populate(),
     });
 
-    // @ts-ignore
     return this.transformResponse(detailedEntity).data;
   },
   
